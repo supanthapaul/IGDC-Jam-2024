@@ -10465,6 +10465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960beb7022b10574a9377c3a35ff344c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasHorizontalLook: 0
+  hasVerticalLook: 0
   sensX: 200
   sensY: 200
   orientation: {fileID: 1177086786}
@@ -11901,19 +11903,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9a727f6ab0af14b9e78c729a2d58b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasForward: 0
+  hasStrafe: 0
+  hasJump: 0
+  hasWallrun: 0
+  hasDash: 0
+  hasCrouch: 0
+  hasSlide: 0
   walkSpeed: 8
   sprintSpeed: 12
   groundDrag: 5
   slideSpeed: 30
   wallRunSpeed: 14
+  dashSpeed: 18
   jumpForce: 8
   jumpCooldown: 0.25
   airMultiplier: 1
   crouchSpeed: 3.5
   crouchScale: 0.5
+  canDash: 0
+  dashForce: 12
+  dashUpwardForce: 2
+  dashCooldown: 1.8
+  dashPeriod: 0.5
   jumpKey: 32
-  sprintKey: 304
   crouchKey: 99
+  dashKey: 101
   playerHeight: 3
   whatIsGround:
     serializedVersion: 2

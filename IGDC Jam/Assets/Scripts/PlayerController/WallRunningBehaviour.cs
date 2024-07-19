@@ -76,7 +76,9 @@ public class WallRunningBehaviour : MonoBehaviour
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical");
-        
+
+        if (!_controller.hasWallrun) return;  //return early, wallrun not unlocked yet
+
         if ((_wallLeft || _wallRight) && _verticalInput > 0f && AboveGround() && !_exitingWall)
         {
             if(!_controller.wallRunning)
