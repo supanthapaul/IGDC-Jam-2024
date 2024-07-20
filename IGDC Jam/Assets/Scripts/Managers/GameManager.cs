@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private AbilityUpdate[] abilities;
 
     private List<Abilities> abilitiesGottenThisRetry;
-    protected void Awake()
+    protected virtual void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         abilitiesGottenThisRetry = new List<Abilities>();
         playerHealth = playerController.GetComponent<IHealth>();
