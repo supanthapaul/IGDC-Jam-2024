@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LockAndDoor
 {
-    public class Door : MonoBehaviour
+    public class Door : IOpener
     {
         [SerializeField]
         private Transform _leftDoor;
@@ -13,10 +13,16 @@ namespace LockAndDoor
 
         [SerializeField]
         private float _openWidth;
+        
+        [SerializeField]
+        private MeshRenderer doorFrameRenderer;
+        [SerializeField]
+        private int glowMatIndex;
 
         private float _leftStartX;
         private float _rightStartX;
         private bool _doorState;
+        private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
 
         private void Start()
         {
@@ -24,26 +30,27 @@ namespace LockAndDoor
             _rightStartX = _rightDoor.localPosition.x;
         }
 
-        public void SetDoor(bool isOpen)
-        {
-            if (_doorState == isOpen) return;
-
-            _doorState = isOpen;
-            _leftDoor.DOLocalMoveZ(isOpen ? _openWidth: 0 + _leftStartX, 1f).SetEase(Ease.InSine);
-            _rightDoor.DOLocalMoveZ(isOpen ? -_openWidth: 0 + _rightStartX, 1f).SetEase(Ease.InSine);
-        }
-
         [ContextMenu("Open Door")]
         public void OnOpen()
         {
-            SetDoor(true);
+            SetOpen(true);
         }
 
         [ContextMenu("Close Door")]
         public void OnClose()
         {
-            SetDoor(false);
+            SetOpen(false);
         }
 
+        public override void SetOpen(bool isOpen)
+        {
+            if (_doorState == isOpen) return;
+
+            _doorState = isOpen;
+            doorFrameRenderer.materials[glowMatIndex].color = isOpen ? Color.green : Color.red;
+            doorFrameRenderer.materials[glowMatIndex].SetColor(EmissionColor, (isOpen ? Color.green : Color.red) * 4f);
+            _leftDoor.DOLocalMoveZ(isOpen ? _openWidth: 0 + _leftStartX, 1f).SetEase(Ease.InSine);
+            _rightDoor.DOLocalMoveZ(isOpen ? -_openWidth: 0 + _rightStartX, 1f).SetEase(Ease.InSine);
+        }
     }
 }
