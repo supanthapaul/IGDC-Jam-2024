@@ -5,8 +5,8 @@ namespace LockAndDoor
 {
     public class Lock : MonoBehaviour
     {
-        [SerializeField]
-        private Door _door;
+        [SerializeField, SerializeReference]
+        private IOpener _door;
         
         [SerializeField]
         private float _totalTime;
@@ -28,35 +28,48 @@ namespace LockAndDoor
         [SerializeField]
         private MeshRenderer _meshRenderer;
         [SerializeField]
+        private int glowMatIndex;
+        [SerializeField]
+        private Gradient _keepOpentransitionGradient;
+        [SerializeField]
         private Gradient _transitionGradient;
+        [SerializeField]
+        private float _emissionIntensity = 4f;
+        
 
         private bool _lock;
    
         private float _decayTimer = 0f;
         private Material _material;
+        private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
 
         private void Start()
         {
-            _material = _meshRenderer.material;
+            _material = _meshRenderer.materials[glowMatIndex];
         }
 
         public void Fill()
         {
             _unlock = Mathf.Clamp01(_unlock + Time.deltaTime/_totalTime);
-            _material.color = _transitionGradient.Evaluate(_unlock);
-            _decayTimer = 0f; // Reset decay timer when Fill is called
             
+            _decayTimer = 0f; // Reset decay timer when Fill is called
+            if (_keepOpen)
+            {
+                _material.color = _keepOpentransitionGradient.Evaluate(_unlock);
+                _material.SetColor(EmissionColor, _keepOpentransitionGradient.Evaluate(_unlock) * _emissionIntensity);
+            }
+            else
+            {
+                _material.color = _transitionGradient.Evaluate(_unlock);
+                _material.SetColor(EmissionColor, _transitionGradient.Evaluate(_unlock) * _emissionIntensity);
+            }
             if (!(_unlock >= 1f)) return;
             _lock = _keepOpen;
-            _door.SetDoor(true);
+            _door.SetOpen(true);
         }
 
         private void Update()
         {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Fill();
-            }
             if (_lock) return;
             _decayTimer += Time.deltaTime;
 
@@ -65,8 +78,17 @@ namespace LockAndDoor
                 // Apply decay
                 float decayAmount = _decayRate * Time.deltaTime;
                 _unlock = Mathf.Max(0f, _unlock - decayAmount);
-                _material.color = _transitionGradient.Evaluate(_unlock);
-                _door.SetDoor(false);
+                _door.SetOpen(false);
+                if (_keepOpen)
+                {
+                    _material.color = _keepOpentransitionGradient.Evaluate(_unlock);
+                    _material.SetColor(EmissionColor, _keepOpentransitionGradient.Evaluate(_unlock) * _emissionIntensity);
+                }
+                else
+                {
+                    _material.color = _transitionGradient.Evaluate(_unlock);
+                    _material.SetColor(EmissionColor, _transitionGradient.Evaluate(_unlock) * _emissionIntensity);
+                }
             }
         }
     }
