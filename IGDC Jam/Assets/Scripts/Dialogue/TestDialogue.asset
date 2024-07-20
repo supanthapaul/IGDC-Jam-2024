@@ -16,7 +16,7 @@ MonoBehaviour:
     be repeating myself. You see that module ahead? Yes, the one emitting the faint,
     blue glow. That's your next objective.
   audio: {fileID: 8300000, guid: 1af97dbaa5979a94a8027faa529b01ff, type: 3}
-  duration: 2.240635
+  duration: 13.257143
   dialogues:
   - text: Ah, excellent, you're awake.
     duration: 2.4
@@ -28,4 +28,4 @@ MonoBehaviour:
     duration: 2.905
   - text: That's your next objective.
     duration: 1.256
-  key: test
+  key: start_level_1

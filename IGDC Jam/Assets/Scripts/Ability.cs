@@ -46,7 +46,7 @@ public class Ability : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void GiveAbility(Abilities nextUnlock)
+    public void GiveAbility(Abilities nextUnlock)
     {
         switch (nextUnlock)
         {

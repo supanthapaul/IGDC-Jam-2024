@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,7 +19,10 @@ namespace Dialogue
         
         public static DialogueManager instance;
         
+        public Action<string> OnDialogueComplete;
+        
         private Coroutine _currentConversation;
+        private string _currentDialogueKey;
 
         private void Awake()
         {
@@ -32,24 +36,19 @@ namespace Dialogue
             }
         }
 
-        private IEnumerator Start()
+        public void StartDialogue(string dialogueKey)
         {
-            yield return new WaitForSeconds(3f);
-            StartDialogue("test");
-            yield return new WaitForSeconds(3f);
-            StartDialogue("test");
-        }
-
-        public void StartDialogue(string sceneContext)
-        {
-            var startNode = _dialogues.Find(d => d.key.Equals(sceneContext));
+            var startNode = _dialogues.Find(d => d.key.Equals(dialogueKey));
 
             if (startNode == null) return;
             if (_currentConversation != null)
             {
                 StopCoroutine(_currentConversation);
                 _audioSource.Stop();
+                OnDialogueComplete?.Invoke(_currentDialogueKey);
             }
+
+            _currentDialogueKey = dialogueKey;
             _currentConversation = StartCoroutine(StartConversation(startNode));
         }
 
@@ -62,6 +61,7 @@ namespace Dialogue
                 _audioText.SetText(dialogue.text);
                 yield return new WaitForSecondsRealtime(dialogue.duration);
             }
+            OnDialogueComplete?.Invoke(_currentDialogueKey);
         }
     }
 }

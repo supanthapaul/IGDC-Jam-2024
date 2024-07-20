@@ -1,5 +1,3 @@
-using DG.Tweening;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,7 +12,7 @@ public class GameManager : MonoBehaviour
 
 
     private List<Abilities> abilitiesGotten;
-    private void Awake()
+    protected virtual void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
 
@@ -27,13 +25,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
-    
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void GetAbilityFeedBack(Abilities newAbility)
     {
         string unlockString = newAbility.ToString() + " unlocked";
@@ -41,7 +32,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ShowAbilityNotif());
     }
 
-    private IEnumerator ShowAbilityNotif()
+    protected IEnumerator ShowAbilityNotif()
     {
         abilityAlphaGroup.gameObject.SetActive(true);
         float elapsedTime = 0f;
