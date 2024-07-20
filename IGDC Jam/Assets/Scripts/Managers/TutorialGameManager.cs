@@ -4,9 +4,6 @@ using UnityEngine;
 public class TutorialGameManager : GameManager
 {
     [SerializeField]
-    private Ability _ability;
-
-    [SerializeField]
     private string _introKey;
 
 
@@ -19,13 +16,8 @@ public class TutorialGameManager : GameManager
 
     private void OnIntroCompleted(string key)
     {
-        if (!_introKey.Equals(key))
-        {
-            return;
-        }
         Debug.Log("Intro Completed!");
         GiveAbility(Abilities.ForwardWalk);
         SetAllRestrictions();
-        DialogueManager.instance.OnDialogueComplete -= OnIntroCompleted;
     }
 }
