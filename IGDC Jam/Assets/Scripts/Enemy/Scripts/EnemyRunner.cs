@@ -27,9 +27,8 @@ namespace Enemy
         
         [SerializeField]
         private int _totalHealth;
-        
-        private int _health;
         private bool _isAlive = true;
+        private int _health;
         private static readonly int Death = Animator.StringToHash("death");
 
         public void SetTarget(Transform target)
@@ -53,9 +52,12 @@ namespace Enemy
 
         public int currentHealth => _health;
         public int totalHealth => _totalHealth;
+
+        public bool isAlive { get => _isAlive; set => _isAlive = value; }
+
         public void TakeDamage(int damage)
         {
-            if (!_isAlive)
+            if (!isAlive)
                 return;
             _health -= damage;
             
@@ -63,12 +65,12 @@ namespace Enemy
 
             _boxCollider.enabled = false;
             _animator.SetTrigger(Death);
-            _isAlive = false;
+            isAlive = false;
         }
 
         protected override void Update()
         {
-            if (!_isAlive) return;
+            if (!isAlive) return;
             base.Update();
             _weapon.WeaponLogic();
         }

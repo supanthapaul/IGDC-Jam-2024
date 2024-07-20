@@ -11432,6 +11432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f1a74f9813e41439b2667dd0051241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 2034155939}
   abilityText: {fileID: 1650643391}
   abilityAlphaGroup: {fileID: 1238988174}
 --- !u!43 &1739273781
@@ -14859,6 +14860,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextUnlock: 0
+--- !u!114 &2034155939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6047921556663646846, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
+    type: 3}
+  m_PrefabInstance: {fileID: 6402464190174459432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9a727f6ab0af14b9e78c729a2d58b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2068018331
 GameObject:
   m_ObjectHideFlags: 0

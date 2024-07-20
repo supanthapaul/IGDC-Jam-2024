@@ -67,14 +67,6 @@ public class WeaponsHolder : AbilityUpdate
         {
             SetActiveWeapon(0);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetActiveWeapon(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SetActiveWeapon(2);
-        }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             SetActiveWeapon(-1);

@@ -1,3 +1,4 @@
+using Health_System;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ public enum FPState
 }
 
 [RequireComponent(typeof(Rigidbody))]
-public class FPController : AbilityUpdate
+public class FPController : AbilityUpdate, IHealth
 {
     [Header("Restrictions")]
     public bool hasForward;
@@ -26,6 +27,9 @@ public class FPController : AbilityUpdate
     public bool hasDash;
     public bool hasCrouch;
     public bool hasSlide;
+
+    [Header("Health")]
+    public int maxHealth;
 
     [Header("Movement")]
     [SerializeField] private float walkSpeed;
@@ -52,7 +56,7 @@ public class FPController : AbilityUpdate
     [SerializeField] private float dashPeriod;
     private float _remainingDashPeriod;
     private float _currentDashCooldown;
-    
+
     [Header("Key Binds")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
@@ -62,7 +66,7 @@ public class FPController : AbilityUpdate
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
     bool _isGrounded;
-    
+
     [Header("Slope Handling")]
     [SerializeField] private float maxSlopeAngle;
     [SerializeField] private float slopeSpeedIncreaseMultiplier = 1.5f;
@@ -84,8 +88,14 @@ public class FPController : AbilityUpdate
     private float _initialScale;
     private bool _exitingSlope;
     private float _desiredMoveSpeed;
-    private float  _lastDesiredMoveSpeed;
+    private float _lastDesiredMoveSpeed;
     private bool dashing;
+
+    public int currentHealth { get; private set; }
+
+    public int totalHealth { get; set; }
+
+    public bool isAlive {get; set;}
 
     private void Start()
     {
@@ -95,6 +105,9 @@ public class FPController : AbilityUpdate
 
         _isReadyToJump = true;
         _initialScale = transform.localScale.y;
+
+        isAlive = true;
+        currentHealth = totalHealth = maxHealth;
     }
 
 
@@ -140,6 +153,7 @@ public class FPController : AbilityUpdate
 
     private void Update()
     {
+        if (!isAlive) return;
         // ground check
         _isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
@@ -156,6 +170,8 @@ public class FPController : AbilityUpdate
 
     private void FixedUpdate()
     {
+        if(!isAlive) return;
+
         MovePlayer();
     }
 
@@ -374,5 +390,16 @@ public class FPController : AbilityUpdate
     public void JumpPadLogic(float upwardForce)
     {
         _rb.AddForce(Vector3.up * upwardForce, ForceMode.Impulse);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if(currentHealth <= 0)
+        {
+            isAlive = false;
+            GameManager.Instance.PlayerDeath();
+        }
     }
 }

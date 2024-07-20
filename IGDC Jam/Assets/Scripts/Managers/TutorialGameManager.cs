@@ -24,7 +24,7 @@ public class TutorialGameManager : GameManager
             return;
         }
         Debug.Log("Intro Completed!");
-        _ability.GiveAbility(Abilities.ForwardWalk);
+        GiveAbility(Abilities.ForwardWalk);
         DialogueManager.instance.OnDialogueComplete -= OnIntroCompleted;
     }
 }

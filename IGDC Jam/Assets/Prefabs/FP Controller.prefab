@@ -222,6 +222,7 @@ MonoBehaviour:
   hasDash: 1
   hasCrouch: 1
   hasSlide: 1
+  maxHealth: 10000
   walkSpeed: 8
   sprintSpeed: 12
   groundDrag: 5
@@ -248,6 +249,7 @@ MonoBehaviour:
   maxSlopeAngle: 45
   slopeSpeedIncreaseMultiplier: 1.5
   orientation: {fileID: 8093970728588222699}
+  weaponsHolder: {fileID: 0}
   state: 0
   sliding: 0
   wallRunning: 0
