@@ -284,7 +284,7 @@ MonoBehaviour:
   orientation: {fileID: 8093970728588222699}
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
