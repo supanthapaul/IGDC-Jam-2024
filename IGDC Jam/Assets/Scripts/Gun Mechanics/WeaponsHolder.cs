@@ -19,9 +19,13 @@ public class WeaponsHolder : AbilityUpdate
     {
         SetUpRestrictions();
         weaponList.Capacity = Mathf.Min(3, weaponList.Count);
-        weaponList[0].enabled = false;
-        weaponList[1%weaponList.Count].enabled = false;
-        weaponList[2%weaponList.Count].enabled = false;
+
+        if(weaponList.Count > 0 )
+        {
+            weaponList[0].enabled = false;
+            weaponList[1%weaponList.Count].enabled = false;
+            weaponList[2%weaponList.Count].enabled = false;
+        }
 
     }
 

@@ -17,11 +17,16 @@ public class FPCam : AbilityUpdate
     private float xRotation;
     private float yRotation;
 
+    private float originalYRotation;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         SetUpRestrictions();
+        transform.rotation = orientation.rotation;
+
+        originalYRotation = orientation.transform.localEulerAngles.y;
+
     }
 
     [ContextMenu("Take Away Look Abilities")]
@@ -55,13 +60,15 @@ public class FPCam : AbilityUpdate
 
         if(hasVerticalLook)
             mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+
+        if (!hasHorizontalLook && !hasVerticalLook) return;
         
         yRotation += mouseX;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation+originalYRotation, 0);
+        orientation.localRotation = Quaternion.Euler(0, yRotation+originalYRotation, 0);
         
     }
 }
