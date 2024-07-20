@@ -11,6 +11,8 @@ public class ChamberOpener : IOpener
     private Transform chamber;
     [SerializeField]
     private float yOffset = 2f;
+    [SerializeField]
+    private float duration = 0.5f;
     
     private bool _state;
     private float _startY;
@@ -37,6 +39,6 @@ public class ChamberOpener : IOpener
         if (_state == isOpen) return;
 
         _state = isOpen;
-        chamber.DOMoveY(isOpen ? _startY + yOffset : _startY, 1f).SetEase(Ease.InSine);
+        chamber.DOMoveY(isOpen ? _startY + yOffset : _startY, duration).SetEase(Ease.InSine);
     }
 }

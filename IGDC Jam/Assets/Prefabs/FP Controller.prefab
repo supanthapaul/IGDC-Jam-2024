@@ -224,9 +224,9 @@ MonoBehaviour:
   hasSlide: 1
   maxHealth: 10000
   walkSpeed: 12
-  groundDrag: 6
+  groundDrag: 6.5
   slideSpeed: 30
-  wallRunSpeed: 16
+  wallRunSpeed: 11
   dashSpeed: 18
   jumpForce: 20
   jumpCooldown: 0.25
@@ -234,10 +234,10 @@ MonoBehaviour:
   crouchSpeed: 3.5
   crouchScale: 0.5
   canDash: 0
-  dashForce: 12
-  dashUpwardForce: 2
-  dashCooldown: 1.8
-  dashPeriod: 0.25
+  dashForce: 10
+  dashUpwardForce: 10
+  dashCooldown: 1
+  dashPeriod: 0.265
   jumpKey: 32
   crouchKey: 99
   dashKey: 101
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 8093970728588222699}
-  slideForce: 200
+  slideForce: 250
   maxSlideTime: 0.75
   slideScale: 0.5
   slideKey: 306
@@ -289,8 +289,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   wallRunForce: 200
-  wallJumpUpForce: 5
-  wallJumpSideForce: 12
+  wallJumpUpForce: 18
+  wallJumpSideForce: 16
   maxWallRunTime: 1.5
   wallCheckDistance: 0.7
   minJumpHeight: 2

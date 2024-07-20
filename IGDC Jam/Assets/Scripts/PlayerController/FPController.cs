@@ -166,6 +166,8 @@ public class FPController : AbilityUpdate, IHealth
             _rb.drag = groundDrag;
         else
             _rb.drag = 0;
+
+        Debug.Log(_rb.drag);
     }
 
     private void FixedUpdate()
@@ -231,6 +233,7 @@ public class FPController : AbilityUpdate, IHealth
                 if(_remainingDashPeriod < 0f)
                 {
                     dashing = false;
+                    _rb.useGravity = true;
                 }
             }
 
@@ -352,6 +355,8 @@ public class FPController : AbilityUpdate, IHealth
         canDash = false;
         _currentDashCooldown = dashCooldown;
         _remainingDashPeriod = dashPeriod;
+        _rb.useGravity = false;
+        _rb.velocity = new(_rb.velocity.x, 0f, _rb.velocity.z);
         _rb.AddForce(_moveDirection*dashForce + orientation.up*dashUpwardForce, ForceMode.VelocityChange);
     }
 
@@ -387,7 +392,7 @@ public class FPController : AbilityUpdate, IHealth
 
     public void JumpPadLogic(float upwardForce)
     {
-        _rb.velocity.Set(_rb.velocity.x, 0f, _rb.velocity.z);
+        _rb.velocity = new(_rb.velocity.x, 0f, _rb.velocity.z);
         _rb.AddForce(Vector3.up * upwardForce, ForceMode.Impulse);
     }
 

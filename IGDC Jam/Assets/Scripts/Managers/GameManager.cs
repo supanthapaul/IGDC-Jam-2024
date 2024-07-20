@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Health_System;
 using System;
 using System.Collections;
@@ -181,14 +182,12 @@ public class GameManager : MonoBehaviour
         
         foreach (var ability in abilities)
         {
-            Debug.Log(ability.ToString());
             ability.SetUpRestrictions();
         }
     }
 
-#if UNITY_EDITOR
     [ContextMenu("Take Away All Abilities")]
-    private void TakeAwayAllAbilities()
+    protected void TakeWayAllAbilities()
     {
         IList enumList = Enum.GetValues(typeof(Abilities));
         foreach (Abilities ab in enumList)
@@ -199,7 +198,7 @@ public class GameManager : MonoBehaviour
     }
 
     [ContextMenu("Give All Abilities")]
-    private void GiveAllAbilities()
+    protected void GiveAllAbilities()
     {
         IList enumList = Enum.GetValues(typeof(Abilities));
         foreach (Abilities ab in enumList)
@@ -208,6 +207,5 @@ public class GameManager : MonoBehaviour
         }
         SetAllRestrictions();
     }
-#endif
 
 }
