@@ -32,6 +32,10 @@ namespace Enemy
         private bool _isAlive = true;
         private static readonly int Death = Animator.StringToHash("death");
 
+        public void SetTarget(Transform target)
+        {
+            _target = target;
+        }
         protected override void Start()
         {
             _health = _totalHealth;
@@ -45,15 +49,6 @@ namespace Enemy
             BehaviourTree.SetTreeData();
             
             _lookAtTarget.LookAt(_target);
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, 15f);
-            
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, 20f);
         }
 
         public int currentHealth => _health;
