@@ -54,8 +54,8 @@ namespace Dialogue
 
         private IEnumerator StartConversation(DialogueSO startNode)
         {
-            _audioSource.Play();
             _audioSource.clip = startNode.audio;
+            _audioSource.Play();
             foreach(var dialogue in startNode.dialogues)
             {
                 _audioText.SetText(dialogue.text);
