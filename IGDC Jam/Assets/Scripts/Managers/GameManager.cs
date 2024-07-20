@@ -1,10 +1,10 @@
-using DG.Tweening;
 using Health_System;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static PlayerPrefStatics;
 
 public class GameManager : MonoBehaviour
@@ -36,9 +36,12 @@ public class GameManager : MonoBehaviour
         abilitiesGottenThisRetry = new List<Abilities>();
         playerHealth = playerController.GetComponent<IHealth>();
         abilities = FindObjectsByType<AbilityUpdate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        SetAllRestrictions();
     }
 
+    private void Update()
+    {
+
+    }
 
     public void LevelCompleted()
     {
@@ -48,8 +51,14 @@ public class GameManager : MonoBehaviour
     public void PlayerDeath()
     {
         //some other stuff
-
         ResetTemporaryAbilities();
+
+        ReloadStage();
+    }
+
+    private void ReloadStage()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ResetTemporaryAbilities()
@@ -172,13 +181,14 @@ public class GameManager : MonoBehaviour
         
         foreach (var ability in abilities)
         {
+            Debug.Log(ability.ToString());
             ability.SetUpRestrictions();
         }
     }
 
 #if UNITY_EDITOR
     [ContextMenu("Take Away All Abilities")]
-    private void TakeWayAllAbilities()
+    private void TakeAwayAllAbilities()
     {
         IList enumList = Enum.GetValues(typeof(Abilities));
         foreach (Abilities ab in enumList)

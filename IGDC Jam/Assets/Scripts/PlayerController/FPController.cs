@@ -108,6 +108,7 @@ public class FPController : AbilityUpdate, IHealth
 
         isAlive = true;
         currentHealth = totalHealth = maxHealth;
+        GameManager.Instance.playerController = this;
     }
 
 
