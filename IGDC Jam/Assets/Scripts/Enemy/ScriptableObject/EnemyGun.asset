@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d6c920070d3104bb6619a10535726e, type: 3}
   m_Name: EnemyGun
   m_EditorClassIdentifier: 
-  triggerType: 0
+  triggerType: 1
   maxCapacity: 50
-  fireRate: 1
+  fireRate: 5
   reloadTime: 2

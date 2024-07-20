@@ -35,6 +35,7 @@ namespace Enemy
             BehaviourTree.SetSharedData("agent", GetComponent<NavMeshAgent>());
             BehaviourTree.SetSharedData("weapon", _weapon);
             BehaviourTree.SetSharedData("weaponTip", _weaponTip);
+            BehaviourTree.SetSharedData("animator", _animator);
             BehaviourTree.SetTreeData();
             
             _lookAtTarget.LookAt(_target);
@@ -58,6 +59,18 @@ namespace Enemy
             {
                 Destroy(gameObject);
             }
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+            _weapon.WeaponLogic();
+        }
+
+        public void Fire()
+        {
+            _weapon.onFireStart?.OnFireInputStart();
+            _weapon.onFireReleased?.OnFireInputReleased();
         }
     }
 }

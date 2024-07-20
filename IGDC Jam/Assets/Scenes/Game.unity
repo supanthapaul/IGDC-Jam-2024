@@ -1694,10 +1694,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 784053045700252394, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5043421300404912507, guid: d23708b24a4df5b499f3591f1927eae6,
         type: 3}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043421300404912507, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043421300404912507, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5516897871609559121, guid: d23708b24a4df5b499f3591f1927eae6,
         type: 3}
@@ -1758,6 +1773,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162016734413919724, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162016734413919724, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7743,9 +7768,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 784053045700252394, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5043421300404912507, guid: d23708b24a4df5b499f3591f1927eae6,
         type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043421300404912507, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043421300404912507, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5516897871609559121, guid: d23708b24a4df5b499f3591f1927eae6,
@@ -7807,6 +7847,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162016734413919724, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162016734413919724, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10561,10 +10611,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 784053045700252394, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5043421300404912507, guid: d23708b24a4df5b499f3591f1927eae6,
         type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043421300404912507, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043421300404912507, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5516897871609559121, guid: d23708b24a4df5b499f3591f1927eae6,
         type: 3}
@@ -10620,6 +10685,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162016734413919724, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162016734413919724, guid: d23708b24a4df5b499f3591f1927eae6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

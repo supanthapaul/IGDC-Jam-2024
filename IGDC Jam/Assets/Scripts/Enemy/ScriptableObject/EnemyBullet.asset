@@ -16,4 +16,4 @@ MonoBehaviour:
   bulletObject: {fileID: 8940821266273501894, guid: f44f340b8e68cf4408f79d598b725588,
     type: 3}
   damage: 2
-  speed: 20
+  speed: 30

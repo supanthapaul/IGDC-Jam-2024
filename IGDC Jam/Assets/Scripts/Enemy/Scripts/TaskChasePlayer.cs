@@ -14,7 +14,9 @@ namespace Enemy
     
         private Transform _target;
         private NavMeshAgent _agent;
-    
+        private Animator _animator;
+        private static readonly int IsFiring = Animator.StringToHash("isFiring");
+
         public TaskChasePlayer(ITreeData treeData) : base(treeData)
         {
         }
@@ -23,6 +25,8 @@ namespace Enemy
         {
             _target ??= TreeData.GetSharedData("target") as Transform;
             _agent ??= TreeData.GetSharedData("agent") as NavMeshAgent;
+            _animator ??= TreeData.GetSharedData("animator") as Animator;
+            _animator!.SetBool(IsFiring, false);
         }
 
         protected override NodeState OnEvaluate()
