@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace LockAndDoor
@@ -6,7 +7,7 @@ namespace LockAndDoor
     {
         [SerializeField]
         private Door _door;
-    
+        
         [SerializeField]
         private float _totalTime;
         
@@ -24,14 +25,25 @@ namespace LockAndDoor
         [SerializeField]
         private bool _keepOpen;
 
+        [SerializeField]
+        private MeshRenderer _meshRenderer;
+        [SerializeField]
+        private Gradient _transitionGradient;
+
         private bool _lock;
    
         private float _decayTimer = 0f;
+        private Material _material;
 
+        private void Start()
+        {
+            _material = _meshRenderer.material;
+        }
 
         public void Fill()
         {
             _unlock = Mathf.Clamp01(_unlock + Time.deltaTime/_totalTime);
+            _material.color = _transitionGradient.Evaluate(_unlock);
             _decayTimer = 0f; // Reset decay timer when Fill is called
             
             if (!(_unlock >= 1f)) return;
@@ -53,6 +65,7 @@ namespace LockAndDoor
                 // Apply decay
                 float decayAmount = _decayRate * Time.deltaTime;
                 _unlock = Mathf.Max(0f, _unlock - decayAmount);
+                _material.color = _transitionGradient.Evaluate(_unlock);
                 _door.SetDoor(false);
             }
         }

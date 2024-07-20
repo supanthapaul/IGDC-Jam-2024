@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,14 @@ namespace Dialogue
         public string text;
         public AudioClip audio;
         public float duration;
-        public DialogueSO _nextDialogue;
+        public List<Dialogues> dialogues;
         public string key;
+    }
+
+    [Serializable]
+    public struct Dialogues
+    {
+        public string text;
+        public float duration;
     }
 }

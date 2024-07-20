@@ -55,14 +55,12 @@ namespace Dialogue
 
         private IEnumerator StartConversation(DialogueSO startNode)
         {
-            var currentNode = startNode;
-            while (currentNode != null)
+            _audioSource.Play();
+            _audioSource.clip = startNode.audio;
+            foreach(var dialogue in startNode.dialogues)
             {
-                _audioSource.clip = currentNode.audio;
-                _audioText.SetText(currentNode.text);
-                _audioSource.Play();
-                yield return new WaitForSeconds(currentNode.duration);
-                currentNode = currentNode._nextDialogue;
+                _audioText.SetText(dialogue.text);
+                yield return new WaitForSecondsRealtime(dialogue.duration);
             }
         }
     }
