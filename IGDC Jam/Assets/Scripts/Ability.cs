@@ -42,6 +42,7 @@ public class Ability : MonoBehaviour
         {
             ability.SetUpRestrictions();
         }
+        GameManager.Instance.GetAbilityFeedBack(nextUnlock);
         Destroy(gameObject);
     }
 
