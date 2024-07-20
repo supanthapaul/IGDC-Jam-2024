@@ -5,25 +5,26 @@ namespace Enemy
 {
     public class TaskShootPlayer : TaskNode
     {
-        private Weapon _weapon;
         private Transform _target;
         private Transform _weaponTip;
+        private Animator _animator;
+        private static readonly int IsFiring = Animator.StringToHash("isFiring");
+
         public TaskShootPlayer(ITreeData treeData) : base(treeData)
         {
         }
 
         protected override void OnStart()
         {
-            _weapon = TreeData.GetSharedData("weapon") as Weapon;
             _weaponTip = TreeData.GetSharedData("weaponTip") as Transform;
             _target = TreeData.GetSharedData("target") as Transform;
+            _animator = TreeData.GetSharedData("animator") as Animator;
         }
 
         protected override NodeState OnEvaluate()
         {
             _weaponTip.LookAt(_target);
-            _weapon.WeaponLogic();
-            _weapon.onFireContinuous?.OnFireInputPressed();
+            _animator.SetBool(IsFiring, true);
             State = NodeState.Success;
             return State;
         }
