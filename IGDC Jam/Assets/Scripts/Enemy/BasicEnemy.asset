@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8404044674212579385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d3532d32414193b170d8266d1e6324, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  parent: {fileID: 8834492521062433802}
+  guid: 0189ef738d289574c9db26b4e9ff3364
+  position: {x: -0.00016784668, y: 130.1885}
+  description: 
+  child: {fileID: 7409352972838078901}
+--- !u!114 &-8323734721002572251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4164c9a72098843b785276a3aa27f3, type: 3}
+  m_Name: TaskChasePlayer
+  m_EditorClassIdentifier: 
+  parent: {fileID: 2408631409581269059}
+  guid: edfd260e42cb39748af224b2dcdb69e9
+  position: {x: -176.0824, y: 577.9772}
+  description: 
+  _chaseTill: 15
+--- !u!114 &-7552941644322489667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73eb5bdc8e94a12bbdfd6cfbb447beb, type: 3}
+  m_Name: TaskShootPlayer
+  m_EditorClassIdentifier: 
+  parent: {fileID: 7409352972838078901}
+  guid: eef9bbee08a68cb41b3b6719eafdc458
+  position: {x: 212.2351, y: 460.0001}
+  description: 
+--- !u!114 &-2648616046162535610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28c7dce7dd845b685c5b290444e51e8, type: 3}
+  m_Name: Selector
+  m_EditorClassIdentifier: 
+  parent: {fileID: 2408631409581269059}
+  guid: c5d92f11633d167419fef02272346b81
+  position: {x: -422.66666, y: 577.3333}
+  description: 
+  Children:
+  - {fileID: 5414490394459877394}
+  - {fileID: 3513681529726181212}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd88f9af50b541cbb69b3b86f8799a04, type: 3}
+  m_Name: BasicEnemy
+  m_EditorClassIdentifier: 
+  root: {fileID: 8834492521062433802}
+  nodes:
+  - {fileID: 8834492521062433802}
+  - {fileID: -8323734721002572251}
+  - {fileID: 5414490394459877394}
+  - {fileID: 7409352972838078901}
+  - {fileID: -8404044674212579385}
+  - {fileID: 2408631409581269059}
+  - {fileID: -7552941644322489667}
+  - {fileID: -2648616046162535610}
+  - {fileID: 3513681529726181212}
+--- !u!114 &2408631409581269059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9fa8e73ef44262976b7f9c91217058, type: 3}
+  m_Name: Sequence
+  m_EditorClassIdentifier: 
+  parent: {fileID: 7409352972838078901}
+  guid: 0b963567e53b8904e967f156480a8f5f
+  position: {x: -250.74911, y: 436.6439}
+  description: 
+  Children:
+  - {fileID: -2648616046162535610}
+  - {fileID: -8323734721002572251}
+--- !u!114 &3513681529726181212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f67dd40f095b34fb1cbf0415795d94, type: 3}
+  m_Name: TaskIsPlayerVisible
+  m_EditorClassIdentifier: 
+  parent: {fileID: -2648616046162535610}
+  guid: 74cb7a7ae4084484c8386a15bfc1402e
+  position: {x: -342.66666, y: 710}
+  description: 
+  _shouldBeVisible: 0
+--- !u!114 &5414490394459877394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bce21c9289b4c3a8c55ca504f26ca93, type: 3}
+  m_Name: TaskPlayerCheck
+  m_EditorClassIdentifier: 
+  parent: {fileID: -2648616046162535610}
+  guid: 106d84a3df4ecf2469dd8513016661ed
+  position: {x: -514, y: 710}
+  description: 
+  _shouldBeInside: 0
+  _range: 20
+--- !u!114 &7409352972838078901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28c7dce7dd845b685c5b290444e51e8, type: 3}
+  m_Name: Selector
+  m_EditorClassIdentifier: 
+  parent: {fileID: -8404044674212579385}
+  guid: a7f3ed24c7879934eb89d9b14cfca49a
+  position: {x: 0.0000036010752, y: 245.33333}
+  description: 
+  Children:
+  - {fileID: 2408631409581269059}
+  - {fileID: -7552941644322489667}
+--- !u!114 &8834492521062433802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216b64e6d57a46e69d1068c767a2c0af, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  guid: a7dd4ddea073732409a14403ee90b916
+  position: {x: 0, y: 8.213318}
+  description: 
+  child: {fileID: -8404044674212579385}

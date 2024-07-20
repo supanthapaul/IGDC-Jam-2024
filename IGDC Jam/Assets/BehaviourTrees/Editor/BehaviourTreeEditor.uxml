@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editor/BehaviourTreeEditor.uss?fileID=7433441132597879392&amp;guid=2b132c7fc8437ec409aaae8ba1c0ae66&amp;type=3#BehaviourTreeEditor" />
+    <SplitView fixed-pane-initial-dimension="150">
+        <ui:VisualElement name="left-panel" style="flex-grow: 1; background-color: rgb(56, 56, 56);">
+            <ui:Label tabindex="-1" text="Inspector" parse-escape-sequences="true" display-tooltip-when-elided="true" class="Heading" />
+            <InspectorView style="flex-grow: 1; background-color: rgb(56, 56, 56);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="right-panel" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="Tree View" parse-escape-sequences="true" display-tooltip-when-elided="true" class="Heading" />
+            <BehaviourTreeView focusable="true" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </SplitView>
+</ui:UXML>

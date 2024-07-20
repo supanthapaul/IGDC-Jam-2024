@@ -1,0 +1,24 @@
+GridBackground {
+    --grid-background-color: rgb(40, 40, 40);
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.1);
+    --spacing: 15;
+}
+
+.Heading {
+    background-color: rgb(41, 41, 41);
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-left;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    -unity-font-style: bold;
+    height: auto;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 20;
+}
