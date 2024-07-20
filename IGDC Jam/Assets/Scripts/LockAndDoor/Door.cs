@@ -29,8 +29,20 @@ namespace LockAndDoor
             if (_doorState == isOpen) return;
 
             _doorState = isOpen;
-            _leftDoor.DOLocalMoveX(isOpen ? -_openWidth: 0 + _leftStartX, 1f);
-            _rightDoor.DOLocalMoveX(isOpen ? _openWidth: 0 + _rightStartX, 1f);
+            _leftDoor.DOLocalMoveZ(isOpen ? _openWidth: 0 + _leftStartX, 1f).SetEase(Ease.InSine);
+            _rightDoor.DOLocalMoveZ(isOpen ? -_openWidth: 0 + _rightStartX, 1f).SetEase(Ease.InSine);
+        }
+
+        [ContextMenu("Open Door")]
+        public void OnOpen()
+        {
+            SetDoor(true);
+        }
+
+        [ContextMenu("Close Door")]
+        public void OnClose()
+        {
+            SetDoor(false);
         }
 
     }
