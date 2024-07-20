@@ -32,6 +32,9 @@ public abstract class Weapon : MonoBehaviour
 
     private Vector3 cameraMidpoint = new(0.5f, 0.5f, 0f);
     public bool IsReloading { get => isReloading; } //getter for external value read
+    public bool IsFiring { get => isFiring;}
+    public bool IsInFireRateWait { get => isInFireRateWait; }
+
     private Ray shootRay;
 
     protected virtual void SetUpStats()

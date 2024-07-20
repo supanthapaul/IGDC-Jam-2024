@@ -7407,6 +7407,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -162.341}
+--- !u!1 &366921338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366921340}
+  - component: {fileID: 366921339}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &366921339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366921338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8704c5c62a043e04f9b770ee5d3176c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBot: 1
+  muzzle: {fileID: 1995999921}
+  stats: {fileID: 11400000, guid: cf0dba1b688b2e94b897e0ff621af7e8, type: 2}
+  bullet: {fileID: 11400000, guid: b4fac0f4d27f0f64e8e67a5b6630110b, type: 2}
+  targets:
+    serializedVersion: 2
+    m_Bits: 65
+  currentAmmo: 50
+--- !u!4 &366921340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366921338}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -7534,9 +7586,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 469299391}
+  - component: {fileID: 469299396}
   - component: {fileID: 469299392}
   - component: {fileID: 469299393}
   - component: {fileID: 469299394}
+  - component: {fileID: 469299395}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Player
@@ -7554,7 +7608,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.175, y: -0.1, z: 0.36}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1995999921}
@@ -7601,7 +7655,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec289e7f8ff7a194da254336a5817768, type: 3}
+  m_Sprite: {fileID: 1310830788, guid: 91c5568b96344eb47b3f6f4429104d0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7627,7 +7681,7 @@ MonoBehaviour:
   isBot: 0
   muzzle: {fileID: 1995999921}
   stats: {fileID: 11400000, guid: cf0dba1b688b2e94b897e0ff621af7e8, type: 2}
-  bullet: {fileID: 11400000, guid: b4fac0f4d27f0f64e8e67a5b6630110b, type: 2}
+  bullet: {fileID: 11400000, guid: 067286fafdb2e0a499187a7cbb24cde3, type: 2}
   targets:
     serializedVersion: 2
     m_Bits: 65
@@ -7650,6 +7704,42 @@ MonoBehaviour:
   - {fileID: 469299393}
   equippedWeaponIndex: 1
   currentEquippedWeapon: {fileID: 0}
+--- !u!114 &469299395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469299390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d6de5f2599ca444b36e7e51f65dfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInventory: {fileID: 469299394}
+  weaponToAnimate: {fileID: 469299393}
+  animator: {fileID: 469299396}
+--- !u!95 &469299396
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469299390}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3be7a1a73cc5b5d4ca4d3c64bd4853fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!43 &677256978
 Mesh:
   m_ObjectHideFlags: 0
@@ -12029,13 +12119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9a727f6ab0af14b9e78c729a2d58b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasForward: 0
-  hasStrafe: 0
-  hasJump: 0
-  hasWallrun: 0
-  hasDash: 0
-  hasCrouch: 0
-  hasSlide: 0
+  hasForward: 1
+  hasStrafe: 1
+  hasJump: 1
+  hasWallrun: 1
+  hasDash: 1
+  hasCrouch: 1
+  hasSlide: 1
   walkSpeed: 8
   sprintSpeed: 12
   groundDrag: 5
@@ -13848,3 +13938,4 @@ SceneRoots:
   - {fileID: 1383253497}
   - {fileID: 350685354}
   - {fileID: 2028722054}
+  - {fileID: 366921340}
