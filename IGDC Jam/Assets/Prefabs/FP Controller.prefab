@@ -160,7 +160,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3106693367773928490}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c253df0accb29d4ea602c58af21aa1c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -223,13 +223,12 @@ MonoBehaviour:
   hasCrouch: 1
   hasSlide: 1
   maxHealth: 10000
-  walkSpeed: 8
-  sprintSpeed: 12
-  groundDrag: 5
+  walkSpeed: 12
+  groundDrag: 6
   slideSpeed: 30
-  wallRunSpeed: 14
+  wallRunSpeed: 16
   dashSpeed: 18
-  jumpForce: 8
+  jumpForce: 20
   jumpCooldown: 0.25
   airMultiplier: 1
   crouchSpeed: 3.5

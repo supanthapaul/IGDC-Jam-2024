@@ -33,7 +33,6 @@ public class FPController : AbilityUpdate, IHealth
 
     [Header("Movement")]
     [SerializeField] private float walkSpeed;
-    [SerializeField] private float sprintSpeed;
     [SerializeField] private float groundDrag;
     [SerializeField] private float slideSpeed;
     [SerializeField] private float wallRunSpeed;
@@ -260,8 +259,6 @@ public class FPController : AbilityUpdate, IHealth
             state = FPState.Sliding;
             if (IsOnSlope() && _rb.velocity.y < 0.1f)
                 _desiredMoveSpeed = slideSpeed;
-            else
-                _desiredMoveSpeed = sprintSpeed;
 
         }
         else if (Input.GetKey(crouchKey))

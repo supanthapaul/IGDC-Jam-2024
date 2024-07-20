@@ -1019,7 +1019,7 @@ PrefabInstance:
     - target: {fileID: 697264455264043465, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 697264455264043465, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
         type: 3}
@@ -1029,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 697264455264043465, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 697264455264043465, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
         type: 3}
@@ -1044,7 +1044,7 @@ PrefabInstance:
     - target: {fileID: 697264455264043465, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 697264455264043465, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
         type: 3}
@@ -1061,11 +1061,31 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1336434619}
+    - target: {fileID: 5154453052256465657, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
+        type: 3}
+      propertyPath: hasVerticalLook
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154453052256465657, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
+        type: 3}
+      propertyPath: hasHorizontalLook
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6099714424301020735, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
         type: 3}
       propertyPath: cameraTargetPos
       value: 
       objectReference: {fileID: 1195941093}
+    - target: {fileID: 7419994593003141459, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
+        type: 3}
+      propertyPath: hasFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419994593003141459, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
+        type: 3}
+      propertyPath: hasReload
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7419994593003141459, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
         type: 3}
       propertyPath: equippedWeaponIndex
@@ -1283,54 +1303,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6047921556663646846, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
         type: 3}
-      propertyPath: hasDash
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047921556663646846, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
-        type: 3}
-      propertyPath: hasJump
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047921556663646846, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
-        type: 3}
-      propertyPath: hasSlide
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047921556663646846, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
-        type: 3}
-      propertyPath: hasCrouch
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047921556663646846, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
-        type: 3}
-      propertyPath: hasStrafe
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047921556663646846, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
-        type: 3}
-      propertyPath: hasForward
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047921556663646846, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
-        type: 3}
-      propertyPath: hasWallrun
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8093970728588222699, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8093970728588222699, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8093970728588222699, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
+      propertyPath: weaponsHolder
+      value: 
+      objectReference: {fileID: 1811683847}
     - target: {fileID: 8940276243328382204, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
         type: 3}
       propertyPath: m_LocalPosition.x
