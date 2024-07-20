@@ -29,7 +29,7 @@ public class FPController : AbilityUpdate
 
     [Header("Movement")]
     [SerializeField] private float walkSpeed;
-    [SerializeField] private  float sprintSpeed;
+    [SerializeField] private float sprintSpeed;
     [SerializeField] private float groundDrag;
     [SerializeField] private float slideSpeed;
     [SerializeField] private float wallRunSpeed;
@@ -61,6 +61,7 @@ public class FPController : AbilityUpdate
     [Header("Ground Check")]
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private bool recentlyTouchedJumpPad;
     bool _isGrounded;
     
     [Header("Slope Handling")]
@@ -254,6 +255,7 @@ public class FPController : AbilityUpdate
         else if (_isGrounded)
         {
             state = FPState.Walking;
+            recentlyTouchedJumpPad = false;
             _desiredMoveSpeed = walkSpeed;
         }
         else
@@ -368,5 +370,10 @@ public class FPController : AbilityUpdate
     public Vector3 GetSlopeMoveDirection(Vector3 direction)
     {
         return Vector3.ProjectOnPlane(direction, _slopeHit.normal).normalized;
+    }
+
+    public void JumpPadLogic(float upwardForce)
+    {
+        _rb.AddForce(Vector3.up * upwardForce, ForceMode.Impulse);
     }
 }
