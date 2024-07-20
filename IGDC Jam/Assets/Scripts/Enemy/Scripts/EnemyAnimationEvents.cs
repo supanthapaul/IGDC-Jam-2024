@@ -10,5 +10,10 @@ namespace Enemy
         {
             _enemyRunner.Fire();
         }
+
+        private void OnDeath()
+        {
+            _enemyRunner.OnDeath();
+        }
     }
 }

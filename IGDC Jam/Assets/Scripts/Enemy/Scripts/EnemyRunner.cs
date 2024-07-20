@@ -23,9 +23,15 @@ namespace Enemy
         private Animator _animator;
 
         [SerializeField]
+        private BoxCollider _boxCollider;
+        
+        [SerializeField]
         private int _totalHealth;
         
         private int _health;
+        private bool _isAlive = true;
+        private static readonly int Death = Animator.StringToHash("death");
+
         protected override void Start()
         {
             _health = _totalHealth;
@@ -54,15 +60,20 @@ namespace Enemy
         public int totalHealth => _totalHealth;
         public void TakeDamage(int damage)
         {
+            if (!_isAlive)
+                return;
             _health -= damage;
-            if (_health <= 0)
-            {
-                Destroy(gameObject);
-            }
+            
+            if (_health > 0) return;
+
+            _boxCollider.enabled = false;
+            _animator.SetTrigger(Death);
+            _isAlive = false;
         }
 
         protected override void Update()
         {
+            if (!_isAlive) return;
             base.Update();
             _weapon.WeaponLogic();
         }
@@ -71,6 +82,11 @@ namespace Enemy
         {
             _weapon.onFireStart?.OnFireInputStart();
             _weapon.onFireReleased?.OnFireInputReleased();
+        }
+
+        public void OnDeath()
+        {
+            Destroy(gameObject);
         }
     }
 }
