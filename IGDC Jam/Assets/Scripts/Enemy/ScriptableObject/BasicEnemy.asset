@@ -31,9 +31,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 2408631409581269059}
   guid: edfd260e42cb39748af224b2dcdb69e9
-  position: {x: -176.0824, y: 577.9772}
+  position: {x: -176.66666, y: 577.3333}
   description: 
   _chaseTill: 15
+  _ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &-7552941644322489667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +131,9 @@ MonoBehaviour:
   position: {x: -342.66666, y: 710}
   description: 
   _shouldBeVisible: 0
+  _ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &5414490394459877394
 MonoBehaviour:
   m_ObjectHideFlags: 0

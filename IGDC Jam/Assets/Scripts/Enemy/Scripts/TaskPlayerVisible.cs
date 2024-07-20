@@ -7,6 +7,9 @@ namespace Enemy
     {
         [SerializeField]
         private bool _shouldBeVisible;
+
+        [SerializeField]
+        private LayerMask _ignoreLayers;
         
         private Transform _target;
         private Transform _transform;
@@ -22,7 +25,7 @@ namespace Enemy
 
         protected override NodeState OnEvaluate()
         {
-            if(Physics.Linecast(_transform.position, _target.position, out RaycastHit hit))
+            if(Physics.Linecast(_transform.position, _target.position, out RaycastHit hit, ~_ignoreLayers))
             {
                 State = hit.transform.CompareTag("Player") == _shouldBeVisible ? NodeState.Success : NodeState.Failure;
                 return State;
