@@ -8,6 +8,9 @@ namespace Enemy
     {
         [SerializeField]
         private float _chaseTill;
+
+        [SerializeField]
+        private LayerMask _ignoreLayers;
     
         private Transform _target;
         private NavMeshAgent _agent;
@@ -49,7 +52,7 @@ namespace Enemy
 
         private bool IsPlayerVisible()
         {
-            if(Physics.Linecast(_agent.transform.position, _target.position, out RaycastHit hit))
+            if(Physics.Linecast(_agent.transform.position, _target.position, out RaycastHit hit, ~_ignoreLayers))
             {
                 Debug.Log("Hit Target: "+hit.transform.gameObject);
                 return hit.transform.CompareTag("Player");
