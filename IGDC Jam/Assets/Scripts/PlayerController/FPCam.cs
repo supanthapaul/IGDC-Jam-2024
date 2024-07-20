@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerPrefStatics;
 
 public class FPCam : MonoBehaviour
 {
+    public bool hasHorizontalLook;
+    public bool hasVerticalLook;
+
     [SerializeField] private float sensX;
     [SerializeField] private float sensY;
 
@@ -17,12 +21,40 @@ public class FPCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        GetRestrictions();
+    }
+
+    [ContextMenu("Take Away Look Abilities")]
+    private void TakeAbilities()
+    {
+        PlayerPrefs.SetInt(LookHorizontalRestriction, 0);
+        PlayerPrefs.SetInt(LookVerticalRestriction, 0);
+        GetRestrictions();
+    }
+
+    [ContextMenu("Give Look Abilities")]
+    private void GiveAbilities()
+    {
+        PlayerPrefs.SetInt(LookHorizontalRestriction, 1);
+        PlayerPrefs.SetInt(LookVerticalRestriction, 1);
+        GetRestrictions();
+    }
+
+
+    private void GetRestrictions()
+    {
+        hasHorizontalLook = PlayerPrefs.GetInt(LookHorizontalRestriction, 0) == 1;
+        hasVerticalLook = PlayerPrefs.GetInt(LookVerticalRestriction, 0) == 1;
     }
 
     private void Update()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = 0, mouseY = 0;
+        if(hasHorizontalLook)
+            mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+
+        if(hasVerticalLook)
+            mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
         
         yRotation += mouseX;
         xRotation -= mouseY;
