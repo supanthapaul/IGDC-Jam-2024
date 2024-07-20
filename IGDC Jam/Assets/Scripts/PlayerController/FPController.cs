@@ -61,7 +61,6 @@ public class FPController : AbilityUpdate
     [Header("Ground Check")]
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private bool recentlyTouchedJumpPad;
     bool _isGrounded;
     
     [Header("Slope Handling")]
@@ -70,6 +69,7 @@ public class FPController : AbilityUpdate
     private RaycastHit _slopeHit;
 
     [SerializeField] private Transform orientation;
+    public WeaponsHolder weaponsHolder;
 
     public FPState state;
     [HideInInspector] public bool sliding;
@@ -255,7 +255,6 @@ public class FPController : AbilityUpdate
         else if (_isGrounded)
         {
             state = FPState.Walking;
-            recentlyTouchedJumpPad = false;
             _desiredMoveSpeed = walkSpeed;
         }
         else

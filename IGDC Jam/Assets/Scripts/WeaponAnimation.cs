@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponAnimation : MonoBehaviour
@@ -15,37 +13,51 @@ public class WeaponAnimation : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.enabled = weaponToAnimate.enabled;
+
+        spriteRenderer.enabled = weaponToAnimate == null ? false : weaponToAnimate.enabled;
     }
 
 
     void Update()
     {
-        if(!weaponToAnimate.IsReloading)
+        if (weaponToAnimate == null)
+        {
+            if(weaponInventory.currentEquippedWeapon != null)
+            {
+                weaponToAnimate = weaponInventory.currentEquippedWeapon;
+            }
+            else
+            {
+                spriteRenderer.enabled = false;
+                return;
+            }
+        }
+
+        if (!weaponToAnimate.IsReloading)
             hasReloaded = false;
-        
-        if(wasDisabled && weaponToAnimate.enabled)
+
+        if (wasDisabled && weaponToAnimate.enabled)
         {
             animator.SetTrigger("Equip");
-            spriteRenderer.enabled = true; 
+            spriteRenderer.enabled = true;
             wasDisabled = false;
         }
 
-        if(!wasDisabled && !weaponToAnimate.enabled)
+        if (!wasDisabled && !weaponToAnimate.enabled)
         {
-            spriteRenderer.enabled = false; 
+            spriteRenderer.enabled = false;
             wasDisabled = true;
         }
 
         animator.SetBool("Firing", weaponToAnimate.IsFiring);
 
-        if(weaponToAnimate.IsReloading&&!hasReloaded)
+        if (weaponToAnimate.IsReloading && !hasReloaded)
         {
             animator.SetTrigger("Reload");
             hasReloaded = true;
         }
 
-        if(Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.L))
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

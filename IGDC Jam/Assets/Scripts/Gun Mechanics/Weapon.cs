@@ -135,4 +135,12 @@ public abstract class Weapon : MonoBehaviour
         DisableWeapon();
     }
 
+    private void OnEnable()
+    {
+        if(muzzle == null)
+        {
+            muzzle = transform.GetChild(0);
+        }
+    }
+
 }

@@ -12,25 +12,22 @@ public class WeaponsHolder : AbilityUpdate
                                          // 2 for secondary, -1 for nothing equipped
     public Weapon currentEquippedWeapon;
 
-    public delegate void OnWeaponChange(int weaponIndex);
-    public event OnWeaponChange WeaponChange;
 
     private void Start()
     {
         SetUpRestrictions();
-        weaponList.Capacity = Mathf.Min(3, weaponList.Count);
 
         if(weaponList.Count > 0 )
         {
             weaponList[0].enabled = false;
-            weaponList[1%weaponList.Count].enabled = false;
-            weaponList[2%weaponList.Count].enabled = false;
         }
 
     }
 
     private void Update()
     {
+        if (weaponList.Count == 0) return; 
+        if (!hasFire) return;
         SwitchWeaponsOnInput();
         if(currentEquippedWeapon!=null)
             CurrentWeaponLogic();
@@ -40,7 +37,6 @@ public class WeaponsHolder : AbilityUpdate
     {
         currentEquippedWeapon.WeaponLogic();
 
-        if (!hasFire) return;
         if (currentEquippedWeapon.IsReloading) return;
 
 
@@ -100,12 +96,17 @@ public class WeaponsHolder : AbilityUpdate
             return;
         }
         currentEquippedWeapon = weaponList[weaponIndex];
-        WeaponChange?.Invoke(equippedWeaponIndex);
         for (int i = 0; i < weaponList.Count; i++)
         {
             weaponList[i].enabled = i == weaponIndex;
         }
-        //Debug.Log(weaponIndex + " " + currentEquippedWeapon != null ? currentEquippedWeapon.name : "Unequipped");
+    }
+
+    public void AddWeapon()
+    {
+        hasFire = true;
+        SetActiveWeapon(0);
+        PlayerPrefs.SetInt(FireRestriction, 1);
     }
 
     public override void SetUpRestrictions()
@@ -119,11 +120,13 @@ public class WeaponsHolder : AbilityUpdate
     {
         PlayerPrefs.SetInt(FireRestriction, 0);
         PlayerPrefs.SetInt(ReloadRestriction, 0);
+        SetUpRestrictions();
     }
     [ContextMenu("Give All Abilities")]
     public void GiveAllAbilities()
     {
         PlayerPrefs.SetInt(FireRestriction, 1);
         PlayerPrefs.SetInt(ReloadRestriction, 1);
+        SetUpRestrictions();
     }
 }
