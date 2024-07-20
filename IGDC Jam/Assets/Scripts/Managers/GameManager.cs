@@ -39,14 +39,10 @@ public class GameManager : MonoBehaviour
         abilities = FindObjectsByType<AbilityUpdate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
     }
 
-    private void Update()
-    {
-
-    }
-
     public void LevelCompleted()
     {
         abilitiesGottenThisRetry.Clear();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
     public void PlayerDeath()
