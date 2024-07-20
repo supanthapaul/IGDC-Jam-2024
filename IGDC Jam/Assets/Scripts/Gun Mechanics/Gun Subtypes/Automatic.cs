@@ -19,7 +19,7 @@ public class Automatic : Weapon, IOnFireInputPressed, IOnFireInputReleased, IOnR
     {
         if (!canFire)
             return;
-
+        isFiring = true;
         Fire();
         StartCoroutine(FireRateLimiter());
     }

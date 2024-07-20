@@ -8,19 +8,24 @@ public class WeaponAnimation : MonoBehaviour
     [SerializeField] private Weapon weaponToAnimate;
     [SerializeField] private Animator animator;
     private SpriteRenderer spriteRenderer;
+
+    private bool hasReloaded;
     
     void Update()
     {
-        Debug.Log(weaponToAnimate.IsFiring + " " + weaponToAnimate.IsInFireRateWait);
+        if(!weaponToAnimate.IsReloading) 
+            hasReloaded = false;
+
         if(weaponToAnimate.IsFiring)
         {
             if (!weaponToAnimate.IsInFireRateWait)
                 animator.SetTrigger("Fire");
         }
 
-        if(weaponToAnimate.IsReloading)
+        if(weaponToAnimate.IsReloading&&!hasReloaded)
         {
             animator.SetTrigger("Reload");
+            hasReloaded = true;
         }
 
         if(Input.GetKey(KeyCode.L))

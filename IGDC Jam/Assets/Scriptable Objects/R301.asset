@@ -15,4 +15,4 @@ MonoBehaviour:
   triggerType: 0
   maxCapacity: 50
   fireRate: 5
-  reloadTime: 1
+  reloadTime: 1.1
