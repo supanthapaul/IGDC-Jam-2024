@@ -10,11 +10,32 @@ public class WeaponAnimation : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private bool hasReloaded;
-    
+    private bool wasDisabled = true;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = weaponToAnimate.enabled;
+    }
+
+
     void Update()
     {
         if(!weaponToAnimate.IsReloading)
             hasReloaded = false;
+        
+        if(wasDisabled && weaponToAnimate.enabled)
+        {
+            animator.SetTrigger("Equip");
+            spriteRenderer.enabled = true; 
+            wasDisabled = false;
+        }
+
+        if(!wasDisabled && !weaponToAnimate.enabled)
+        {
+            spriteRenderer.enabled = false; 
+            wasDisabled = true;
+        }
 
         animator.SetBool("Firing", weaponToAnimate.IsFiring);
 
