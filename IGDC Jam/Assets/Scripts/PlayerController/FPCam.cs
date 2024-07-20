@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static PlayerPrefStatics;
 
-public class FPCam : MonoBehaviour
+public class FPCam : AbilityUpdate
 {
     public bool hasHorizontalLook;
     public bool hasVerticalLook;
@@ -21,7 +21,7 @@ public class FPCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        GetRestrictions();
+        SetUpRestrictions();
     }
 
     [ContextMenu("Take Away Look Abilities")]
@@ -29,7 +29,7 @@ public class FPCam : MonoBehaviour
     {
         PlayerPrefs.SetInt(LookHorizontalRestriction, 0);
         PlayerPrefs.SetInt(LookVerticalRestriction, 0);
-        GetRestrictions();
+        SetUpRestrictions();
     }
 
     [ContextMenu("Give Look Abilities")]
@@ -37,11 +37,11 @@ public class FPCam : MonoBehaviour
     {
         PlayerPrefs.SetInt(LookHorizontalRestriction, 1);
         PlayerPrefs.SetInt(LookVerticalRestriction, 1);
-        GetRestrictions();
+        SetUpRestrictions();
     }
 
 
-    private void GetRestrictions()
+    public override void SetUpRestrictions()
     {
         hasHorizontalLook = PlayerPrefs.GetInt(LookHorizontalRestriction, 0) == 1;
         hasVerticalLook = PlayerPrefs.GetInt(LookVerticalRestriction, 0) == 1;

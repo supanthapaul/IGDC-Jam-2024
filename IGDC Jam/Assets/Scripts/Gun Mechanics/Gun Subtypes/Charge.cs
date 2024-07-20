@@ -13,7 +13,7 @@ using UnityEngine;
 
 //I have considered other variants of implementations and I feel that
 //they are equally achieavable with this architecture
-public class Charge : Weapon, IOnFireInputStart, IOnFireInputReleased
+public class Charge : Weapon, IOnFireInputStart, IOnFireInputReleased, IOnReloadStart
 {
     [SerializeField] private bool isCharging, hasCooledDown;
     [SerializeField] private float chargeRate, chargeDecay;
@@ -31,6 +31,7 @@ public class Charge : Weapon, IOnFireInputStart, IOnFireInputReleased
 
     void Start()
     {
+        GetInterfaces();
         SetUpStats();
         currentCharge = 0f;
         stats.triggerType = TriggerType.CHARGE;
@@ -46,7 +47,6 @@ public class Charge : Weapon, IOnFireInputStart, IOnFireInputReleased
     public override void WeaponLogic()
     {
         CanFireCheck();
-        ReadInputs();
         ChargeCalculations();
     }
 
@@ -56,20 +56,6 @@ public class Charge : Weapon, IOnFireInputStart, IOnFireInputReleased
         canFire &= currentCooldownTime <= 0f;
     }
 
-    protected override void ReadInputs()
-    {
-        base.ReadInputs();
-        if (isReloading) return;
-
-        if (Input.GetMouseButtonDown(0) && canFire)
-        {
-            OnFireInputStart();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            OnFireInputReleased();
-        }
-    }
     private void ChargeCalculations()
     {
         //let weapon cooldown
@@ -140,5 +126,17 @@ public class Charge : Weapon, IOnFireInputStart, IOnFireInputReleased
         currentChargeHoldTime = 0;
         currentCooldownTime = 0f;
         hasCooledDown = true;
+    }
+
+    protected override void GetInterfaces()
+    {
+        onFireStart = GetComponent<IOnFireInputStart>();
+        onFireReleased = GetComponent<IOnFireInputReleased>();
+        onReload = GetComponent<IOnReloadStart>();
+    }
+
+    public void OnReloadPressed()
+    {
+        StartCoroutine(ReloadCoroutine());
     }
 }
