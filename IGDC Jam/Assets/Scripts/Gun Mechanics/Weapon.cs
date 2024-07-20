@@ -116,7 +116,10 @@ public abstract class Weapon : MonoBehaviour
         }
 
         if (currentAmmo == 0)
+        {
             isEmpty = true;
+            isFiring = false;
+        }
     }
 
     protected virtual void DisableWeapon()

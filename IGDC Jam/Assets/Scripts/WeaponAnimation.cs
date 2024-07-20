@@ -13,14 +13,10 @@ public class WeaponAnimation : MonoBehaviour
     
     void Update()
     {
-        if(!weaponToAnimate.IsReloading) 
+        if(!weaponToAnimate.IsReloading)
             hasReloaded = false;
 
-        if(weaponToAnimate.IsFiring)
-        {
-            if (!weaponToAnimate.IsInFireRateWait)
-                animator.SetTrigger("Fire");
-        }
+        animator.SetBool("Firing", weaponToAnimate.IsFiring);
 
         if(weaponToAnimate.IsReloading&&!hasReloaded)
         {
