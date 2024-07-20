@@ -387,6 +387,7 @@ public class FPController : AbilityUpdate, IHealth
 
     public void JumpPadLogic(float upwardForce)
     {
+        _rb.velocity.Set(_rb.velocity.x, 0f, _rb.velocity.z);
         _rb.AddForce(Vector3.up * upwardForce, ForceMode.Impulse);
     }
 
