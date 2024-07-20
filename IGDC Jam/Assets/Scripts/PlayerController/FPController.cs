@@ -272,7 +272,6 @@ public class FPController : MonoBehaviour
             
         }
         _lastDesiredMoveSpeed = _desiredMoveSpeed;
-        Debug.Log(_desiredMoveSpeed);
     }
 
     private IEnumerator LerpMoveSpeed()
