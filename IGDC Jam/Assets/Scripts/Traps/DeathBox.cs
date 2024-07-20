@@ -7,7 +7,7 @@ public class DeathBox : MonoBehaviour
     {
         if (other.TryGetComponent<IHealth>(out var damagableObject))
         {
-            damagableObject.TakeDamage(-50000);
+            damagableObject.TakeDamage(50000);
         }
     }
 }
