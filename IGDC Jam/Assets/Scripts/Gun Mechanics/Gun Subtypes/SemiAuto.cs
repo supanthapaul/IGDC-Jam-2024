@@ -4,12 +4,13 @@ using UnityEngine;
 //The implementation goes as follows
 //We capture first frame of FireInput to fire
 //and then wait for a triggerReset on the event of FireInput Released
-public class SemiAuto : Weapon, IOnFireInputStart, IOnFireInputReleased
+public class SemiAuto : Weapon, IOnFireInputStart, IOnFireInputReleased, IOnReloadStart
 {
     private bool triggerReset;
     // Start is called before the first frame update
     void Start()
     {
+        GetInterfaces();
         SetUpStats();
         stats.triggerType = TriggerType.SEMIAUTO;
     }
@@ -23,23 +24,6 @@ public class SemiAuto : Weapon, IOnFireInputStart, IOnFireInputReleased
     public override void WeaponLogic()
     {
         CanFireCheck();
-        ReadInputs();
-    }
-
-    protected override void ReadInputs()
-    {
-        base.ReadInputs();
-        if (isReloading)
-            return;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            OnFireInputStart();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            OnFireInputReleased();
-        }
     }
 
     protected override void CanFireCheck()
@@ -60,5 +44,17 @@ public class SemiAuto : Weapon, IOnFireInputStart, IOnFireInputReleased
     public void OnFireInputReleased()
     {
         triggerReset = true;
+    }
+
+    protected override void GetInterfaces()
+    {
+        onFireStart = GetComponent<IOnFireInputStart>();
+        onFireReleased = GetComponent<IOnFireInputReleased>();
+        onReload = GetComponent<IOnReloadStart>();
+    }
+
+    public void OnReloadPressed()
+    {
+        StartCoroutine(ReloadCoroutine());
     }
 }

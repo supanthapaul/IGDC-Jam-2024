@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class Automatic : Weapon, IOnFireInputPressed, IOnFireInputReleased
+public class Automatic : Weapon, IOnFireInputPressed, IOnFireInputReleased, IOnReloadStart
 {
     private void Start()
     {
         base.SetUpStats();
+        GetInterfaces();
         stats.triggerType = TriggerType.AUTOMATIC;
     }
 
@@ -12,21 +13,6 @@ public class Automatic : Weapon, IOnFireInputPressed, IOnFireInputReleased
     public override void WeaponLogic()
     {
         CanFireCheck();
-        ReadInputs();
-    }
-
-    protected override void ReadInputs()
-    {
-        base.ReadInputs();
-
-        if (isReloading)
-            return;
-
-        if (Input.GetMouseButton(0))
-            OnFireInputPressed();
-
-        else if (Input.GetMouseButtonUp(0))
-            OnFireInputReleased();
     }
 
     public void OnFireInputPressed()
@@ -41,5 +27,17 @@ public class Automatic : Weapon, IOnFireInputPressed, IOnFireInputReleased
     public void OnFireInputReleased()
     {
         isFiring = false;
+    }
+
+    public void OnReloadPressed()
+    {
+        StartCoroutine(ReloadCoroutine());
+    }
+
+    protected override void GetInterfaces()
+    {
+        onFireContinuous = GetComponent<IOnFireInputPressed>();
+        onFireReleased = GetComponent<IOnFireInputReleased>();
+        onReload = GetComponent<IOnReloadStart>();
     }
 }

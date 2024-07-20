@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerPrefStatics;
 
-public class WeaponsHolder : MonoBehaviour
+public class WeaponsHolder : AbilityUpdate
 {
+    public bool hasFire;
+    public bool hasReload;
     public List<Weapon> weaponList;
     public int equippedWeaponIndex = -1; // 0 for first primary, 1 for second primary,
                                          // 2 for secondary, -1 for nothing equipped
@@ -14,10 +17,12 @@ public class WeaponsHolder : MonoBehaviour
 
     private void Start()
     {
+        SetUpRestrictions();
         weaponList.Capacity = Mathf.Min(3, weaponList.Count);
         weaponList[0].enabled = false;
         weaponList[1%weaponList.Count].enabled = false;
         weaponList[2%weaponList.Count].enabled = false;
+
     }
 
     private void Update()
@@ -30,6 +35,30 @@ public class WeaponsHolder : MonoBehaviour
     private void CurrentWeaponLogic()
     {
         currentEquippedWeapon.WeaponLogic();
+
+        if (!hasFire) return;
+        if (currentEquippedWeapon.IsReloading) return;
+
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            currentEquippedWeapon.onFireStart?.OnFireInputStart();
+        }
+        if (Input.GetMouseButton(0))
+        {
+            currentEquippedWeapon.onFireContinuous?.OnFireInputPressed();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            currentEquippedWeapon.onFireReleased?.OnFireInputReleased();
+        }
+
+        if(!hasReload) return;  
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            currentEquippedWeapon.onReload?.OnReloadPressed();
+        }
     }
 
     private void SwitchWeaponsOnInput()
@@ -73,5 +102,24 @@ public class WeaponsHolder : MonoBehaviour
             weaponList[i].enabled = i == weaponIndex;
         }
         //Debug.Log(weaponIndex + " " + currentEquippedWeapon != null ? currentEquippedWeapon.name : "Unequipped");
+    }
+
+    public override void SetUpRestrictions()
+    {
+        hasFire = PlayerPrefs.GetInt(FireRestriction, 0) == 1;
+        hasReload = PlayerPrefs.GetInt(ReloadRestriction, 0) == 1;
+    }
+
+    [ContextMenu("Take Away All Abilities")]
+    public void TakeAwayAbilities()
+    {
+        PlayerPrefs.SetInt(FireRestriction, 0);
+        PlayerPrefs.SetInt(ReloadRestriction, 0);
+    }
+    [ContextMenu("Give All Abilities")]
+    public void GiveAllAbilities()
+    {
+        PlayerPrefs.SetInt(FireRestriction, 1);
+        PlayerPrefs.SetInt(ReloadRestriction, 1);
     }
 }

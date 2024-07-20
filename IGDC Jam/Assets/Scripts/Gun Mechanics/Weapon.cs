@@ -12,6 +12,11 @@ public abstract class Weapon : MonoBehaviour
     public LayerMask targets;
     public int currentAmmo;
 
+    public IOnFireInputStart onFireStart;
+    public IOnFireInputPressed onFireContinuous;
+    public IOnFireInputReleased onFireReleased;
+    public IOnReloadStart onReload;
+
     //firing stats
     protected bool isFiring;
     protected bool canFire; //currentAmmo>zero && not reloading && over the fire rate limits
@@ -26,7 +31,7 @@ public abstract class Weapon : MonoBehaviour
     private Camera cam;
 
     private Vector3 cameraMidpoint = new(0.5f, 0.5f, 0f);
-    public bool IsReloading { get => isReloading; } //getter fior external value read
+    public bool IsReloading { get => isReloading; } //getter for external value read
     private Ray shootRay;
 
     protected virtual void SetUpStats()
@@ -35,37 +40,24 @@ public abstract class Weapon : MonoBehaviour
         reloadWait = new WaitForSeconds(stats.reloadTime);
         fireRateWait = new WaitForSeconds(1f / stats.fireRate);
         cam = Camera.main;
-        Debug.Log((Camera.main == null) + " " + (cam == null));
     }
 
     //publicized for external calls
     public virtual void WeaponLogic()
     {
         CanFireCheck();
-        ReadInputs();
     }
 
-    protected virtual void ReadInputs()
+    protected virtual IEnumerator ReloadCoroutine()
     {
-        if (Input.GetKeyDown(KeyCode.R)) //reload
-        {
-            StartCoroutine(Reload());
-        }
-    }
+        //already reloading, don't do shit
+        if (isReloading) yield break;
 
-    protected virtual IEnumerator Reload()
-    {
         isReloading = true;
         yield return reloadWait;
         currentAmmo = stats.maxCapacity;
         isEmpty = false;
         isReloading = false;
-
-        //Alternative implementation
-        //add reload cancel to the wait by changing
-        //how we count down the timer (using "while" basically)
-        //and not adding any more bullets if reload gets cancelled
-        //before the countdown ends
     }
 
     //these limiters can be swapped with simple Time checkers where we check
@@ -92,15 +84,8 @@ public abstract class Weapon : MonoBehaviour
         switch (bullet.bulletType)
         {
             case BulletType.RAYCAST:
-                Debug.Log(cam == null);
-                if(!isBot)
-                {
-                    shootRay = cam.ViewportPointToRay(cameraMidpoint);
-                }
-                else
-                {
-
-                }
+                shootRay = cam.ViewportPointToRay(cameraMidpoint);
+                
                 float maxLineLength = 5f;
                 if(Physics.SphereCast(shootRay, 0.25f, out RaycastHit hit, 150f, targets))
                 {
@@ -114,8 +99,7 @@ public abstract class Weapon : MonoBehaviour
 
                 //draw line till maxLineLength
                 // use muzzle transform as origin and forward * maxlineLength for endPoint
-                
-                
+                               
                 break;
             case BulletType.TRAVEL:
                 Bullet currentBullet = Instantiate(bullet.bulletObject, muzzle.position, muzzle.rotation, null);
@@ -138,6 +122,7 @@ public abstract class Weapon : MonoBehaviour
         isInFireRateWait = false;
         isReloading = false;
     }
+    protected abstract void GetInterfaces();
 
     private void OnDisable()
     {

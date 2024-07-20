@@ -16,7 +16,7 @@ public enum FPState
 }
 
 [RequireComponent(typeof(Rigidbody))]
-public class FPController : MonoBehaviour
+public class FPController : AbilityUpdate
 {
     [Header("Restrictions")]
     public bool hasForward;
@@ -126,7 +126,7 @@ public class FPController : MonoBehaviour
         SetUpRestrictions();
     }
 
-    private void SetUpRestrictions()
+    public override void SetUpRestrictions()
     {
         hasForward =        PlayerPrefs.GetInt(ForwardRestriction, 0) == 1;
         hasStrafe =         PlayerPrefs.GetInt(StrafeRestriction, 0) == 1;

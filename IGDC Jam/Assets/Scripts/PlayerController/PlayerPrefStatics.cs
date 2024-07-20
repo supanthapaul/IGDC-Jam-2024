@@ -14,5 +14,5 @@ public class PlayerPrefStatics
     public static string SlideRestriction = "slide";
     public static string WallRunRestriction = "wallrun";
     public static string FireRestriction = "fire";
-    public static string reloadRestriction = "reload";
+    public static string ReloadRestriction = "reload";
 }
