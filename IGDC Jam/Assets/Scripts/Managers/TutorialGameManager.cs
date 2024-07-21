@@ -10,8 +10,8 @@ public class TutorialGameManager : GameManager
     protected override void Start()
     {
         base.Start();
-        DialogueManager.instance.OnDialogueComplete += OnIntroCompleted;
-        DialogueManager.instance.StartDialogue(_introKey);
+        DialogueManager.Instance.OnDialogueComplete += OnIntroCompleted;
+        DialogueManager.Instance.StartDialogue(_introKey);
         TakeWayAllAbilities();
     }
 

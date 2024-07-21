@@ -14,8 +14,8 @@ namespace Managers
 
         private void Start()
         {
-            DialogueManager.instance.OnDialogueComplete += OnIntroCompleted;
-            DialogueManager.instance.StartDialogue(_introKey);
+            DialogueManager.Instance.OnDialogueComplete += OnIntroCompleted;
+            DialogueManager.Instance.StartDialogue(_introKey);
         }
 
         private void OnIntroCompleted(string key)
@@ -24,7 +24,7 @@ namespace Managers
             {
                 GameManager.Instance.GiveAbility(Abilities.ForwardWalk);
                 GameManager.Instance.SetAllRestrictions();
-                DialogueManager.instance.StartDialogue("next_key");
+                DialogueManager.Instance.StartDialogue("next_key");
             }
         }
     }
