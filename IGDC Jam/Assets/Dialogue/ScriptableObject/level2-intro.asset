@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0dcb9c588824aefb3ff4e88516cc681, type: 3}
   m_Name: level2-intro
   m_EditorClassIdentifier: 
-  text: 
-  audio: {fileID: 0}
-  duration: 0
-  dialogues: []
-  key: 
+  text: Time to test your problem-solving skills. Do try your best. Although it might
+    not be enough
+  audio: {fileID: 8300000, guid: 34fd1597e51ea7b44812c4bb5bf61290, type: 3}
+  duration: 6.352789
+  dialogues:
+  - text: 'Time to test your problem-solving skills. Do try your best. '
+    duration: 2.87
+  - text: Do try your best. Although it might not be enough
+    duration: 3.482789
+  key: level2-intro
