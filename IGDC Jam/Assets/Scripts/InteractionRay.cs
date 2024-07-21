@@ -20,18 +20,19 @@ public class InteractionRay : MonoBehaviour
         gazeRay = cam.ViewportPointToRay(screenMidpoint);
         if (Physics.Raycast(gazeRay, out RaycastHit hit, 50f))
         {
-            if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Lock"))
+            if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Lock"))
+                return;
+
+            if (currentLock == null)
             {
-                if(currentLock == null)
-                {
-                    currentLock = hit.transform.GetComponent<Lock>();
-                }
-                else if (currentLock.transform.position != hit.transform.position) //different lock
-                {
-                    currentLock = hit.transform.GetComponent<Lock>();
-                }
-                currentLock.Fill();
+                currentLock = hit.transform.GetComponent<Lock>();
+                return;
             }
+            else if (currentLock.transform.position != hit.transform.position) //different lock
+            {
+                currentLock = hit.transform.GetComponent<Lock>();
+            }
+            currentLock.Fill();
         }
     }
 }

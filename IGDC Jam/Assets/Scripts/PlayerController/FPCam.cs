@@ -16,6 +16,7 @@ public class FPCam : AbilityUpdate
 
     private float originalYRotation;
 
+    [SerializeField] private GameObject streaksEffect;
     [SerializeField] private float fovChangeSpeed;
     [SerializeField] private float maxFOVChange;
     [SerializeField] private Vector2 fovRange;
@@ -23,6 +24,9 @@ public class FPCam : AbilityUpdate
     private Camera cam;
     private float currentFOVVelocity;
     private Rigidbody characterRB;
+    float invLerpedSpeed;
+    [SerializeField] private float streaksMinimumTime;
+    private float streaksCurrentTime;
 
     private void Start()
     {
@@ -80,16 +84,29 @@ public class FPCam : AbilityUpdate
         transform.localRotation = Quaternion.Euler(xRotation, yRotation+originalYRotation, 0);
         orientation.localRotation = Quaternion.Euler(0, yRotation+originalYRotation, 0);
 
-
+        Vector3 flatVel = new(characterRB.velocity.x, 0, characterRB.velocity.z);
+        invLerpedSpeed = Mathf.InverseLerp(speedRange.x, speedRange.y, flatVel.magnitude);
         FOVHandling();
+
+        if (invLerpedSpeed * Mathf.Abs(Vector3.Dot(orientation.forward, flatVel.normalized)) > 0.4f && !streaksEffect.activeInHierarchy)
+        {
+            streaksEffect.SetActive(true);
+            streaksCurrentTime = streaksMinimumTime;
+        }
+        else if(streaksEffect.activeInHierarchy)
+        {
+            streaksCurrentTime -= Time.deltaTime;
+            if(streaksCurrentTime < 0)
+            {
+                streaksEffect.SetActive(false);
+            }
+        }
+        
     }
 
     private void FOVHandling()
     {
-        Vector3 flatVel = new(characterRB.velocity.x, 0, characterRB.velocity.z);
-        float invLerpedSpeed = Mathf.InverseLerp(speedRange.x, speedRange.y, flatVel.magnitude);
         float fovTarget = Mathf.Lerp(fovRange.x, fovRange.y, invLerpedSpeed);
-
         cam.fieldOfView = Mathf.SmoothDamp(cam.fieldOfView, fovTarget, ref currentFOVVelocity, fovChangeSpeed*Time.deltaTime, maxFOVChange);
     }
 }
