@@ -10,9 +10,11 @@ public class TutorialGameManager : GameManager
     protected override void Start()
     {
         base.Start();
+        TakeAwayAllAbilities();
+        SetAllRestrictions();
         DialogueManager.Instance.OnDialogueComplete += OnIntroCompleted;
         DialogueManager.Instance.StartDialogue(_introKey);
-        TakeWayAllAbilities();
+        TakeAwayAllAbilities();
     }
 
     private void OnIntroCompleted(string key)

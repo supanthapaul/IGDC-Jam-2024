@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
     }
 
     [ContextMenu("Take Away All Abilities")]
-    protected void TakeWayAllAbilities()
+    protected void TakeAwayAllAbilities()
     {
         IList enumList = Enum.GetValues(typeof(Abilities));
         foreach (Abilities ab in enumList)
