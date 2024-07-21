@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
 
@@ -50,12 +52,19 @@ public class AudioManager : MonoBehaviour {
             narrator2DSource = newNarrator2DSource.AddComponent<AudioSource>();
             newNarrator2DSource.transform.parent = transform;
 
+            SceneManager.activeSceneChanged += StopNarratorSound;
+
             //Set the volumes to saved volumes from PlayerPrefs
             //If there isn't any PlayerPref, we'll use the default value
             sfxVolumePercent = PlayerPrefs.GetFloat(PlayerPrefStatics.SFXVolume, 1f);
             musicVolumePercent = PlayerPrefs.GetFloat(PlayerPrefStatics.MusicVolume, 1f);
             narratorVolumePercent = PlayerPrefs.GetFloat(PlayerPrefStatics.NarratorVolume, 1f);
         }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= StopNarratorSound;
     }
 
     public void SetVolume(float volumePercent, AudioChannel channel)
@@ -128,6 +137,12 @@ public class AudioManager : MonoBehaviour {
     public void StopNarratorSound()
     {
         narrator2DSource.Stop();
+    }
+    
+    private void StopNarratorSound(Scene s, Scene scene)
+    {
+        if(narrator2DSource)
+            narrator2DSource.Stop();
     }
 
     IEnumerator AnimateMusicCrossfade(float duration)
