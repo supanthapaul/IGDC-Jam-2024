@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerHealth != null) healthBarFill.fillAmount = playerHealth.currentHealth / playerHealth.totalHealth;
+        if (playerHealth != null) healthBarFill.fillAmount = (float)playerHealth.currentHealth / (float)playerHealth.totalHealth;
     }
 
     private void SetUpInputImages()
