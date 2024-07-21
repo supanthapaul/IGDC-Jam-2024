@@ -3995,7 +3995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4baad35db475e41b07d872fd295c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneName: Game
+  gameSceneName: Level1
   playButton: {fileID: 451898686}
   optionsButton: {fileID: 1456469631}
   tutorialButton: {fileID: 797869604}

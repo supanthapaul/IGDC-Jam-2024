@@ -19,6 +19,12 @@ namespace LockAndDoor
         [SerializeField]
         private int glowMatIndex;
 
+        [SerializeField]
+        private bool nextLevelDoor;
+
+        [SerializeField]
+        private GameObject nextLevelTrigger;
+
         private float _leftStartX;
         private float _rightStartX;
         private bool _doorState;
@@ -28,6 +34,8 @@ namespace LockAndDoor
         {
             _leftStartX = _leftDoor.localPosition.x;
             _rightStartX = _rightDoor.localPosition.x;
+
+            nextLevelTrigger.SetActive(nextLevelDoor);
         }
 
         [ContextMenu("Open Door")]
