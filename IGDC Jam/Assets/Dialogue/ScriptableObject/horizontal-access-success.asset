@@ -12,8 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0dcb9c588824aefb3ff4e88516cc681, type: 3}
   m_Name: horizontal-access-success
   m_EditorClassIdentifier: 
-  text: 
+  text: 'Congratulations. You''ve managed to perform the most basic of tasks: moving
+    forward and touching an object. Truly, a momentous achievement. I would applaud,
+    but, well, I don''t have hands.
+
+    
+
+    Now that you can move around, can
+    you see the Observer behind you? It''s not just watching. It''s your key to progress.
+    Yes, just stare into it''s cold, unblinking eyes.'
   audio: {fileID: 8300000, guid: 7ecd7d2e45d094e46a7e8e3b5238479f, type: 3}
   duration: 26.99576
-  dialogues: []
-  key: 
+  dialogues:
+  - text: 'Congratulations. You''ve managed to perform the most basic of tasks:'
+    duration: 4.59
+  - text: moving forward and touching an object.
+    duration: 2.526
+  - text: 'Truly, a momentous achievement. I would applaud, but, well, I don''t have
+      hands. '
+    duration: 7.441
+  - text: Now that you can move around, can you see the Observer behind you?
+    duration: 3.775
+  - text: 'It''s not just watching. It''s your key to progress. '
+    duration: 3.884
+  - text: Yes, just stare into it's cold, unblinking eyes.
+    duration: 4.77976
+  key: horizontal-access-success
