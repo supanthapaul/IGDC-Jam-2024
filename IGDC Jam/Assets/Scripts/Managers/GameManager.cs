@@ -209,7 +209,9 @@ public class GameManager : MonoBehaviour
         {
             ability.SetUpRestrictions();
         }
+        SetUpInputImages();
     }
+
 
     [ContextMenu("Take Away All Abilities")]
     protected void TakeAwayAllAbilities()
