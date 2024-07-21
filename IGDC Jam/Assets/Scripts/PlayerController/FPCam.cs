@@ -70,10 +70,10 @@ public class FPCam : AbilityUpdate
     {
         float mouseX = 0, mouseY = 0;
         if(hasHorizontalLook)
-            mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+            mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensX;
 
         if(hasVerticalLook)
-            mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+            mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensY;
 
         if (!hasHorizontalLook && !hasVerticalLook) return;
         

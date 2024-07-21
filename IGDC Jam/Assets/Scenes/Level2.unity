@@ -635,6 +635,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &203099062 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5427963261849853901, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &260556262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3880,7 +3892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 528297532}
-  abilityText: {fileID: 1937726756}
+  abilityText: {fileID: 203099062}
   healthBarFill: {fileID: 1225620136}
   abilityAlphaGroup: {fileID: 1225620135}
   deathFade: {fileID: 1646215427}
@@ -4089,18 +4101,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1937726756 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6265588303365102526, guid: 25546f0e15843b347985721a7d2b2274,
-    type: 3}
-  m_PrefabInstance: {fileID: 1646215426}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2137103960 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4248132246621748107, guid: af9d43b5a26e7bc4e8a15c53c4aaafb9,
