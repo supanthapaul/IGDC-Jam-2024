@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private IHealth playerHealth;
     public static GameManager Instance;
     public TextMeshProUGUI abilityText;
+    [SerializeField]
+    private Image healthBarFill;
     public CanvasGroup abilityAlphaGroup;
     public Image deathFade;
 
@@ -42,6 +44,13 @@ public class GameManager : MonoBehaviour
         abilities = FindObjectsByType<AbilityUpdate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         deathFade.DOColor(Color.clear, 1f);
         SetUpInputImages();
+        abilityAlphaGroup.alpha = 0f;
+        abilityAlphaGroup.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (playerHealth != null) healthBarFill.fillAmount = playerHealth.currentHealth / playerHealth.totalHealth;
     }
 
     private void SetUpInputImages()
@@ -126,24 +135,24 @@ public class GameManager : MonoBehaviour
 
     private void GetAbilityFeedBack(Abilities newAbility)
     {
-        string unlockString = newAbility.ToString() + " unlocked";
+        string unlockString = newAbility.ToString();
         abilityText.text = unlockString;
         abilitiesGottenThisRetry.Add(newAbility);
         StartCoroutine(ShowAbilityNotif());
     }
 
-    protected IEnumerator ShowAbilityNotif()
+    private IEnumerator ShowAbilityNotif()
     {
         abilityAlphaGroup.gameObject.SetActive(true);
-        float elapsedTime = 0f;
-        while (elapsedTime < 2f)
-        {
-            abilityAlphaGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / 2f);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        abilityAlphaGroup.gameObject.SetActive(false);
+        abilityAlphaGroup.transform.DOScaleX(1f, 0.35f).SetEase(Ease.OutBack);
+        abilityAlphaGroup.DOFade(1f, 0.35f);
 
+        yield return new WaitForSeconds(2f);
+        abilityAlphaGroup.transform.DOScaleX(0f, 0.35f).SetEase(Ease.OutBack);
+        abilityAlphaGroup.DOFade(0f, 0.35f).OnComplete(() =>
+        {
+            abilityAlphaGroup.gameObject.SetActive(false);
+        });
     }
 
     public void GiveAbility(Abilities nextUnlock)

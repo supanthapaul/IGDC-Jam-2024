@@ -227,12 +227,6 @@ Transform:
   - {fileID: 1011532009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!225 &284010065 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 5735484965262542502, guid: 25546f0e15843b347985721a7d2b2274,
-    type: 3}
-  m_PrefabInstance: {fileID: 1646215426}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &288424270 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7927911686706470946, guid: 25546f0e15843b347985721a7d2b2274,
@@ -475,6 +469,18 @@ Transform:
   - {fileID: 1719117566}
   m_Father: {fileID: 170702004}
   m_LocalEulerAnglesHint: {x: -270, y: 0, z: 0}
+--- !u!114 &403657030 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5427963261849853901, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &510352475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2615,6 +2621,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1646215426}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &1618723918 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7655005847389956457, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1646215426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2781,6 +2793,18 @@ PrefabInstance:
 --- !u!114 &1646215427 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6611754467129135376, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1646215428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8016980856284116889, guid: 25546f0e15843b347985721a7d2b2274,
     type: 3}
   m_PrefabInstance: {fileID: 1646215426}
   m_PrefabAsset: {fileID: 0}
@@ -3122,8 +3146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 528297532}
-  abilityText: {fileID: 1937726756}
-  abilityAlphaGroup: {fileID: 284010065}
+  abilityText: {fileID: 403657030}
+  healthBarFill: {fileID: 1646215428}
+  abilityAlphaGroup: {fileID: 1618723918}
   deathFade: {fileID: 1646215427}
   inputImages:
     ForwardWalk: {fileID: 374596534}
@@ -3365,18 +3390,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1937726756 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6265588303365102526, guid: 25546f0e15843b347985721a7d2b2274,
-    type: 3}
-  m_PrefabInstance: {fileID: 1646215426}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2060537981
 GameObject:
   m_ObjectHideFlags: 0

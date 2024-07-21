@@ -87,10 +87,9 @@ public class FPCam : AbilityUpdate
     private void FOVHandling()
     {
         Vector3 flatVel = new(characterRB.velocity.x, 0, characterRB.velocity.z);
-        Debug.Log(flatVel.magnitude);
         float invLerpedSpeed = Mathf.InverseLerp(speedRange.x, speedRange.y, flatVel.magnitude);
         float fovTarget = Mathf.Lerp(fovRange.x, fovRange.y, invLerpedSpeed);
 
-        cam.fieldOfView = Mathf.SmoothDamp(cam.fieldOfView, fovTarget, ref currentFOVVelocity, fovChangeSpeed*Time.deltaTime, maxFOVChange*Time.deltaTime);
+        cam.fieldOfView = Mathf.SmoothDamp(cam.fieldOfView, fovTarget, ref currentFOVVelocity, fovChangeSpeed*Time.deltaTime, maxFOVChange);
     }
 }

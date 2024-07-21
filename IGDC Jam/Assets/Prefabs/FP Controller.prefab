@@ -240,7 +240,7 @@ MonoBehaviour:
   dashPeriod: 0.265
   dashSprite: {fileID: 0}
   jumpKey: 32
-  crouchKey: 99
+  crouchKey: 305
   dashKey: 101
   playerHeight: 3
   whatIsGround:

@@ -1001,12 +1001,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272127826}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!225 &284010065 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 5735484965262542502, guid: 25546f0e15843b347985721a7d2b2274,
-    type: 3}
-  m_PrefabInstance: {fileID: 1646215426}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &294273384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,6 +2136,11 @@ PrefabInstance:
     - target: {fileID: 652142257555027808, guid: af9d43b5a26e7bc4e8a15c53c4aaafb9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248132246621748107, guid: af9d43b5a26e7bc4e8a15c53c4aaafb9,
+        type: 3}
+      propertyPath: nextLevelDoor
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4642600142059813964, guid: af9d43b5a26e7bc4e8a15c53c4aaafb9,
@@ -11926,7 +11925,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 528297532}
   abilityText: {fileID: 1937726756}
-  abilityAlphaGroup: {fileID: 284010065}
+  healthBarFill: {fileID: 0}
+  abilityAlphaGroup: {fileID: 0}
   deathFade: {fileID: 466613081}
   inputImages:
     ForwardWalk: {fileID: 2045178686}
