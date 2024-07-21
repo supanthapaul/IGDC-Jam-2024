@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using static PlayerPrefStatics;
 
@@ -18,8 +19,19 @@ public class FPCam : AbilityUpdate
     private float yRotation;
 
     private float originalYRotation;
+
+    [SerializeField] private float fovChangeSpeed;
+    [SerializeField] private float maxFOVChange;
+    [SerializeField] private Vector2 fovRange;
+    [SerializeField] private Vector2 speedRange;
+    private Camera cam;
+    private float currentFOVVelocity;
+    private Rigidbody characterRB;
+
     private void Start()
     {
+        cam = GetComponent<Camera>();
+        characterRB = orientation.parent.GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         SetUpRestrictions();
@@ -71,6 +83,18 @@ public class FPCam : AbilityUpdate
         
         transform.localRotation = Quaternion.Euler(xRotation, yRotation+originalYRotation, 0);
         orientation.localRotation = Quaternion.Euler(0, yRotation+originalYRotation, 0);
-        
+
+
+        FOVHandling();
+    }
+
+    private void FOVHandling()
+    {
+        Vector3 flatVel = new(characterRB.velocity.x, 0, characterRB.velocity.z);
+        Debug.Log(flatVel.magnitude);
+        float invLerpedSpeed = Mathf.InverseLerp(speedRange.x, speedRange.y, flatVel.magnitude);
+        float fovTarget = Mathf.Lerp(fovRange.x, fovRange.y, invLerpedSpeed);
+
+        cam.fieldOfView = Mathf.SmoothDamp(cam.fieldOfView, fovTarget, ref currentFOVVelocity, fovChangeSpeed*Time.deltaTime, maxFOVChange*Time.deltaTime);
     }
 }

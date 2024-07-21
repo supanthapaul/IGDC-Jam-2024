@@ -183,11 +183,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960beb7022b10574a9377c3a35ff344c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasHorizontalLook: 0
-  hasVerticalLook: 0
+  hasHorizontalLook: 1
+  hasVerticalLook: 1
   sensX: 200
   sensY: 200
   orientation: {fileID: 0}
+  fovChangeSpeed: 2
+  maxFOVChange: 500
+  fovRange: {x: 60, y: 70}
+  speedRange: {x: 20, y: 25}
 --- !u!114 &8476113969650836203
 MonoBehaviour:
   m_ObjectHideFlags: 0
