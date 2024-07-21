@@ -12,9 +12,6 @@ namespace Dialogue
         private List<DialogueSO> _dialogues;
 
         [SerializeField]
-        private AudioSource _audioSource;
-
-        [SerializeField]
         private TextMeshProUGUI _audioText;
         
         public static DialogueManager Instance;
@@ -49,7 +46,7 @@ namespace Dialogue
             {
                 StopCoroutine(_currentConversation);
                 _audioText.SetText(string.Empty);
-                _audioSource.Stop();
+                AudioManager.instance.StopNarratorSound();
                 OnDialogueComplete?.Invoke(_currentDialogueKey);
             }
 

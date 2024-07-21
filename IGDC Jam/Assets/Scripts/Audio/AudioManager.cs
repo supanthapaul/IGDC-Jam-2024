@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour {
     AudioSource sfx2DSource;                //Audio source for playing 2D sound effects
     AudioSource[] musicSources;             //Audio sources for backgroud music
     int activeMusicSourceIndex;             //The index of active music we are currently playing
+    AudioSource narrator2DSource;  
 
     public SoundLibrary library;
     
@@ -44,6 +45,10 @@ public class AudioManager : MonoBehaviour {
             GameObject newSfx2DSource = new GameObject("2D Sfx source ");
             sfx2DSource = newSfx2DSource.AddComponent<AudioSource>();
             newSfx2DSource.transform.parent = transform;
+            
+            GameObject newNarrator2DSource = new GameObject("2D Narrator source ");
+            narrator2DSource = newNarrator2DSource.AddComponent<AudioSource>();
+            newNarrator2DSource.transform.parent = transform;
 
             //Set the volumes to saved volumes from PlayerPrefs
             //If there isn't any PlayerPref, we'll use the default value
@@ -115,9 +120,14 @@ public class AudioManager : MonoBehaviour {
     public void PlayNarratorSound2D(AudioClip clip, float optVolume = 1)
     {
         if (clip != null)
-            sfx2DSource.PlayOneShot(clip, narratorVolumePercent * optVolume);
+            narrator2DSource.PlayOneShot(clip, narratorVolumePercent * optVolume);
         else
             Debug.LogError("Audio Clip not found, set references boi!");
+    }
+    
+    public void StopNarratorSound()
+    {
+        narrator2DSource.Stop();
     }
 
     IEnumerator AnimateMusicCrossfade(float duration)
