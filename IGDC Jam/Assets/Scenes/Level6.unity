@@ -12656,6 +12656,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 942343307260347090, guid: 81d7c3acb4e300841a29e7a456fea94d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.1984444
+      objectReference: {fileID: 0}
+    - target: {fileID: 942343307260347090, guid: 81d7c3acb4e300841a29e7a456fea94d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.1350813
+      objectReference: {fileID: 0}
     - target: {fileID: 4984086491795022326, guid: 81d7c3acb4e300841a29e7a456fea94d,
         type: 3}
       propertyPath: nextUnlock
