@@ -68,11 +68,6 @@ public class FinalLevelSequence : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        _dialogueManager.OnDialogueComplete -= EndGame;
-    }
-
     private void MainMenu()
     {
         Time.timeScale = 1f;
