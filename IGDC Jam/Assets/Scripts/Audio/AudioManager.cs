@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour {
 
     //Enum used for setting the master, sfx and music volume in a function
-    public enum AudioChannel { Sfx, Music };
+    public enum AudioChannel { Sfx, Music, Narrator };
     
     public float sfxVolumePercent { get; private set;}
     
@@ -76,6 +76,9 @@ public class AudioManager : MonoBehaviour {
                 break;
             case AudioChannel.Music:
                 musicVolumePercent = volumePercent;
+                break;
+            case AudioChannel.Narrator:
+                narratorVolumePercent = volumePercent;
                 break;
             default:
                 break;
