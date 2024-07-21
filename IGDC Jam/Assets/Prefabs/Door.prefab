@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb73cf34fda8fe54996f783e1710254a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openSoundName: doorOpen
+  closeSoundName: doorClose
   _leftDoor: {fileID: 7738648534832831995}
   _rightDoor: {fileID: 7998974789685463316}
   _openWidth: 3.5
@@ -362,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fde3665aee5864493c1b18d5f62766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _door: {fileID: 4248132246621748107}
 --- !u!65 &923490215727217581
 BoxCollider:
   m_ObjectHideFlags: 0

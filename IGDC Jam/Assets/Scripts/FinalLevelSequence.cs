@@ -59,6 +59,8 @@ public class FinalLevelSequence : MonoBehaviour
             Time.timeScale = 0f;
             endPanel.gameObject.SetActive(true);
             endPanel.alpha = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             endPanel.DOFade(1f, endFadeDuration).SetUpdate(true).OnComplete(() =>
             {
                 endText.text = "THE END..?";

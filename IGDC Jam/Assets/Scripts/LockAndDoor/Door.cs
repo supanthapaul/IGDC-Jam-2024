@@ -29,6 +29,7 @@ namespace LockAndDoor
         private float _rightStartX;
         private bool _doorState;
         private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
+        public bool IsOpen => _doorState;
 
         private void Start()
         {
