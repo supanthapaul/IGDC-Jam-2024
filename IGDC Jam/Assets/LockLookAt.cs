@@ -15,7 +15,8 @@ public class LockLookAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lookAtVector = new(playerTransform.position.x , 0f, playerTransform.position.z);
-        transform.LookAt(lookAtVector, Vector3.up);    
+        lookAtVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z);
+        lookAtVector -= transform.position;
+        transform.rotation = Quaternion.LookRotation(lookAtVector, Vector3.up);
     }
 }
