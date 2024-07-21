@@ -636,12 +636,12 @@ PrefabInstance:
     - target: {fileID: 8076128812063491861, guid: a62426fd51a4eac4aa36cb037f04a444,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.6602516
+      value: -10.52
       objectReference: {fileID: 0}
     - target: {fileID: 8076128812063491861, guid: a62426fd51a4eac4aa36cb037f04a444,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.6111956
+      value: 3.17
       objectReference: {fileID: 0}
     - target: {fileID: 8076128812063491861, guid: a62426fd51a4eac4aa36cb037f04a444,
         type: 3}
@@ -1360,6 +1360,21 @@ PrefabInstance:
       propertyPath: weaponsHolder
       value: 
       objectReference: {fileID: 1811683847}
+    - target: {fileID: 8093970728588222699, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093970728588222699, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093970728588222699, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 8940276243328382204, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
         type: 3}
       propertyPath: m_LocalPosition.x
