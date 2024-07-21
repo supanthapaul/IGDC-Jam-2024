@@ -189,7 +189,7 @@ MonoBehaviour:
   sensY: 200
   orientation: {fileID: 0}
   fovChangeSpeed: 2
-  maxFOVChange: 500
+  maxFOVChange: 50
   fovRange: {x: 60, y: 70}
   speedRange: {x: 20, y: 25}
 --- !u!114 &8476113969650836203
