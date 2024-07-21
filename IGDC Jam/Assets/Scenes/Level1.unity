@@ -122,6 +122,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &168589826 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6703535295814789462, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &207924293
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +246,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!224 &208102969 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4764818979288458372, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!225 &284010065 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 5735484965262542502, guid: 25546f0e15843b347985721a7d2b2274,
@@ -403,6 +415,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9a727f6ab0af14b9e78c729a2d58b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &545182527 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7927911686706470946, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &620116339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8933342932384806151, guid: 25546f0e15843b347985721a7d2b2274,
@@ -688,6 +706,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a62426fd51a4eac4aa36cb037f04a444, type: 3}
+--- !u!224 &1030589407 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4387726076544654073, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1195941093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 839349428521365564, guid: 18f8c4f26e00cb548ae6fcf8026af8db,
@@ -1155,6 +1179,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5ee663d21e7c64b88b4e1b8eda3c80, type: 3}
+--- !u!224 &1547543964 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5758307469195421997, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1646215426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1476,6 +1506,16 @@ MonoBehaviour:
   abilityText: {fileID: 1937726756}
   abilityAlphaGroup: {fileID: 284010065}
   deathFade: {fileID: 1646215427}
+  inputImages:
+    ForwardWalk: {fileID: 2048018306}
+    HorizontalLook: {fileID: 1944440572}
+    Jump: {fileID: 545182527}
+    VerticalLook: {fileID: 1030589407}
+    Strafe: {fileID: 1916463260}
+    Dash: {fileID: 1547543964}
+    Slide: {fileID: 208102969}
+    Equip: {fileID: 168589826}
+    Reload: {fileID: 2045174797}
   _introKey: start_level_1
 --- !u!4 &1892113657
 Transform:
@@ -1505,6 +1545,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextUnlock: 0
+--- !u!224 &1916463260 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4310707193595646359, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1931808307
 Mesh:
   m_ObjectHideFlags: 0
@@ -1692,6 +1738,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1944440572 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7618489976364474851, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2045174797 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7187977923667666591, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2048018306 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8284101645316410960, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &2099059223
 LightingSettings:
   m_ObjectHideFlags: 0

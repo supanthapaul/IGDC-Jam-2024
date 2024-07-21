@@ -1663,6 +1663,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &925985410 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7187977923667666591, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 925985408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &925985411 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6703535295814789462, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 925985408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &925985412 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4764818979288458372, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 925985408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &925985413 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5758307469195421997, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 925985408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &925985414 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4387726076544654073, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 925985408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &925985415 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4310707193595646359, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 925985408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &925985416 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7927911686706470946, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 925985408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &925985417 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7618489976364474851, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 925985408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &925985418 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8284101645316410960, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 925985408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!225 &941218785 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 5735484965262542502, guid: 25546f0e15843b347985721a7d2b2274,
@@ -2212,6 +2266,16 @@ MonoBehaviour:
   abilityText: {fileID: 1589690483}
   abilityAlphaGroup: {fileID: 941218785}
   deathFade: {fileID: 925985409}
+  inputImages:
+    ForwardWalk: {fileID: 925985418}
+    HorizontalLook: {fileID: 925985417}
+    Jump: {fileID: 925985416}
+    Strafe: {fileID: 925985415}
+    VerticalLook: {fileID: 925985414}
+    Dash: {fileID: 925985413}
+    Slide: {fileID: 925985412}
+    Equip: {fileID: 925985411}
+    Reload: {fileID: 925985410}
 --- !u!114 &1356560469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4248132246621748107, guid: af9d43b5a26e7bc4e8a15c53c4aaafb9,

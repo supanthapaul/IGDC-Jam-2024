@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public CanvasGroup abilityAlphaGroup;
     public Image deathFade;
 
+    public InputImages inputImages;
+    
     private AbilityUpdate[] abilities;
 
     private List<Abilities> abilitiesGottenThisRetry;
@@ -39,6 +41,20 @@ public class GameManager : MonoBehaviour
         playerHealth = playerController.GetComponent<IHealth>();
         abilities = FindObjectsByType<AbilityUpdate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         deathFade.DOColor(Color.clear, 1f);
+        SetUpInputImages();
+    }
+
+    private void SetUpInputImages()
+    {
+        inputImages.ForwardWalk.gameObject.SetActive(PlayerPrefs.GetInt(ForwardRestriction, 0)==1);
+        inputImages.Strafe.gameObject.SetActive(PlayerPrefs.GetInt(StrafeRestriction, 0)==1);
+        inputImages.HorizontalLook.gameObject.SetActive(PlayerPrefs.GetInt(LookHorizontalRestriction, 0)==1);
+        inputImages.VerticalLook.gameObject.SetActive(PlayerPrefs.GetInt(LookVerticalRestriction, 0)==1);
+        inputImages.Reload.gameObject.SetActive(PlayerPrefs.GetInt(ReloadRestriction, 0)==1);
+        inputImages.Equip.gameObject.SetActive(PlayerPrefs.GetInt(FireRestriction, 0)==1);
+        inputImages.Dash.gameObject.SetActive(PlayerPrefs.GetInt(DashRestriction, 0)==1);
+        inputImages.Slide.gameObject.SetActive(PlayerPrefs.GetInt(SlideRestriction, 0)==1);
+        inputImages.Jump.gameObject.SetActive(PlayerPrefs.GetInt(JumpRestriction, 0)==1);
     }
 
     public void LevelCompleted()
@@ -169,6 +185,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        SetUpInputImages();
+
         if(Application.isPlaying)
             GetAbilityFeedBack(nextUnlock);
     }
@@ -205,4 +223,20 @@ public class GameManager : MonoBehaviour
         SetAllRestrictions();
     }
 
+
+
+}
+
+[Serializable]
+public class InputImages
+{
+    public RectTransform ForwardWalk;
+    public RectTransform HorizontalLook;
+    public RectTransform Jump;
+    public RectTransform Strafe;
+    public RectTransform VerticalLook;
+    public RectTransform Dash;
+    public RectTransform Slide;
+    public RectTransform Equip;
+    public RectTransform Reload;
 }
