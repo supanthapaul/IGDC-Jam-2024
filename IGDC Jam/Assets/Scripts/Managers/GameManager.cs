@@ -69,7 +69,11 @@ public class GameManager : MonoBehaviour
     public void LevelCompleted()
     {
         abilitiesGottenThisRetry.Clear();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+
+        if (SceneManager.GetActiveScene().buildIndex + 1 > SceneManager.sceneCountInBuildSettings)
+            return;
+
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex+1));
     }
 
     public void PlayerDeath()
@@ -209,7 +213,9 @@ public class GameManager : MonoBehaviour
         {
             ability.SetUpRestrictions();
         }
+        SetUpInputImages();
     }
+
 
     [ContextMenu("Take Away All Abilities")]
     protected void TakeAwayAllAbilities()
