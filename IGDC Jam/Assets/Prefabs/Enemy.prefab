@@ -188,7 +188,7 @@ MonoBehaviour:
   _weapon: {fileID: 7073964007033076809}
   _animator: {fileID: 184460676131106658}
   _boxCollider: {fileID: 4269506865501097334}
-  _totalHealth: 10
+  _totalHealth: 4
 --- !u!195 &3017745794531218110
 NavMeshAgent:
   m_ObjectHideFlags: 0
