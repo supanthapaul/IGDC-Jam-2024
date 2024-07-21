@@ -6,9 +6,9 @@ public class SetupOptions : MonoBehaviour
     [SerializeField] Slider musicVolume, sfxVolume, narratorVolume, mouseSens;
     void Start()
     {
-        musicVolume.value = PlayerPrefs.GetFloat(MusicVolume, 0.7f);
+        musicVolume.value = PlayerPrefs.GetFloat(MusicVolume, 0.15f);
         sfxVolume.value = PlayerPrefs.GetFloat(SFXVolume, 0.5f);
-        narratorVolume.value = PlayerPrefs.GetFloat(NarratorVolume, 0.9f);
+        narratorVolume.value = PlayerPrefs.GetFloat(NarratorVolume, 1f);
         mouseSens.value = PlayerPrefs.GetFloat(MouseSens, 0.5f);
     }
 
