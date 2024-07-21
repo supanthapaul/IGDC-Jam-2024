@@ -233,6 +233,12 @@ CanvasGroup:
     type: 3}
   m_PrefabInstance: {fileID: 1646215426}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &288424270 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7927911686706470946, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &294273384
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +384,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!224 &374596534 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8284101645316410960, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &374689522
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +703,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &761058646 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7187977923667666591, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &764431258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -813,6 +831,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &857150058 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6703535295814789462, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &938598345 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4387726076544654073, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &975048242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2579,6 +2609,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1646215426}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1572596306 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7618489976364474851, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1646215426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3049,6 +3085,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18f8c4f26e00cb548ae6fcf8026af8db, type: 3}
+--- !u!224 &1826411736 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4764818979288458372, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1892113655
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,15 +3126,15 @@ MonoBehaviour:
   abilityAlphaGroup: {fileID: 284010065}
   deathFade: {fileID: 1646215427}
   inputImages:
-    ForwardWalk: {fileID: 2048018306}
-    HorizontalLook: {fileID: 1944440572}
-    Jump: {fileID: 545182527}
-    VerticalLook: {fileID: 1030589407}
+    ForwardWalk: {fileID: 374596534}
+    HorizontalLook: {fileID: 1572596306}
+    Jump: {fileID: 288424270}
     Strafe: {fileID: 1916463260}
+    VerticalLook: {fileID: 938598345}
     Dash: {fileID: 1547543964}
-    Slide: {fileID: 208102969}
-    Equip: {fileID: 168589826}
-    Reload: {fileID: 2045174797}
+    Slide: {fileID: 1826411736}
+    Equip: {fileID: 857150058}
+    Reload: {fileID: 761058646}
   _introKey: start_level_1
 --- !u!4 &1892113657
 Transform:
