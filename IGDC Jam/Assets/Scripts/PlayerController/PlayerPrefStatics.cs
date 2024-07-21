@@ -15,4 +15,10 @@ public class PlayerPrefStatics
     public static string WallRunRestriction = "wallrun";
     public static string FireRestriction = "fire";
     public static string ReloadRestriction = "reload";
+
+
+    public static string SFXVolume = "sfx";
+    public static string MusicVolume = "music";
+    public static string NarratorVolume = "narrator";
+    public static string MouseSens = "sens";
 }
