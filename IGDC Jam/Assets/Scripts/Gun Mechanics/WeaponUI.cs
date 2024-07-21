@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+
 public class WeaponUI : MonoBehaviour
 {
     [SerializeField] private WeaponsHolder weaponHolder; //would've used a service locator or a instance ideally

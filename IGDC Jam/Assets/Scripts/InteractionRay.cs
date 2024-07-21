@@ -1,6 +1,4 @@
 using LockAndDoor;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionRay : MonoBehaviour

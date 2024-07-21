@@ -1,4 +1,4 @@
-using UnityEngine;
+
 
 //Semi Auto Weapon inheriting Weapon class
 //The implementation goes as follows

@@ -2,7 +2,6 @@ using Dialogue;
 using Enemy;
 using LockAndDoor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class FinalLevelSequence : MonoBehaviour
 {

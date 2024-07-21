@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Automatic : Weapon, IOnFireInputPressed, IOnFireInputReleased, IOnReloadStart
 {
     private void Start()
