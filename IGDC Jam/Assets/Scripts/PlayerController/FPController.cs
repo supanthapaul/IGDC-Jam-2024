@@ -166,8 +166,6 @@ public class FPController : AbilityUpdate, IHealth
             _rb.drag = groundDrag;
         else
             _rb.drag = 0;
-
-        Debug.Log(_rb.drag);
     }
 
     private void FixedUpdate()
@@ -239,7 +237,6 @@ public class FPController : AbilityUpdate, IHealth
 
             if(Input.GetKeyDown(dashKey) && canDash)
             {
-                Debug.Log("Dashed");
                 Dash();
             }
         }
@@ -402,6 +399,8 @@ public class FPController : AbilityUpdate, IHealth
 
         if(currentHealth <= 0)
         {
+            _rb.velocity = Vector3.zero;
+            _rb.isKinematic = true;
             isAlive = false;
             GameManager.Instance.PlayerDeath();
         }
