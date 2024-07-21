@@ -18,4 +18,4 @@ MonoBehaviour:
   dialogues:
   - text: Now, <b>KILL</B>
     duration: 1.765782
-  key: 
+  key: reload-access-success

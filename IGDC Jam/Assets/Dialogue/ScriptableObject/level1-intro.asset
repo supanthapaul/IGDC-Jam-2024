@@ -25,6 +25,6 @@ MonoBehaviour:
     duration: 4.88
   - text: You see the module ahead? Yes, the one emitting a faint blue glow.
     duration: 4.68
-  - text: Go pick it up.
+  - text: That's your objective. Go pick it up.
     duration: 2.47581
   key: level1-intro

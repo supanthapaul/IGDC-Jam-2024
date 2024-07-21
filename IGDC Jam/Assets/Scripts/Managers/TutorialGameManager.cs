@@ -19,7 +19,7 @@ public class TutorialGameManager : GameManager
 
     private void OnIntroCompleted(string key)
     {
-        Debug.Log("Intro Completed!");
+        if (!key.Equals(_introKey)) return;
         GiveAbility(Abilities.ForwardWalk);
         SetAllRestrictions();
     }

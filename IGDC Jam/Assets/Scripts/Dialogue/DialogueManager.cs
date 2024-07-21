@@ -40,7 +40,11 @@ namespace Dialogue
         {
             var startNode = _dialogues.Find(d => d.key.Equals(dialogueKey));
 
-            if (startNode == null) return;
+            if (startNode == null) 
+            {
+                Debug.Log("Could not find key");
+                return;
+            }
             if (_currentConversation != null)
             {
                 StopCoroutine(_currentConversation);

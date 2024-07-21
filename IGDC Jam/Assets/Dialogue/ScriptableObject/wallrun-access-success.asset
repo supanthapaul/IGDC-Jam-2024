@@ -20,4 +20,4 @@ MonoBehaviour:
   - text: Oh look. A <b>conveniently</b> placed pair of magnetic boots for running
       against certain walls.
     duration: 12.85442
-  key: 
+  key: wallrun-access-success
