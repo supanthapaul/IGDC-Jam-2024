@@ -1,3 +1,4 @@
+using System;
 using BehaviourTrees;
 using Health_System;
 using UnityEngine;
@@ -27,6 +28,7 @@ namespace Enemy
         
         [SerializeField]
         private int _totalHealth;
+        public event Action OnDeathEvent; 
         private bool _isAlive = true;
         private int _health;
         private static readonly int Death = Animator.StringToHash("death");
@@ -83,6 +85,8 @@ namespace Enemy
 
         public void OnDeath()
         {
+            OnDeathEvent?.Invoke();
+            OnDeathEvent = null;
             Destroy(gameObject);
         }
     }

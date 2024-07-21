@@ -14,6 +14,8 @@ namespace Enemy
 
         [SerializeField]
         private float _range;
+        private int _currentEnemyCount;
+        public event Action OnAllEnemiesDeathEvent;
 
         public void SpawnEnemies(int amount)
         {
@@ -24,7 +26,19 @@ namespace Enemy
                 var spawnPointPosition = spawnPoint.position;
                 Vector3 offset = new Vector3(Random.Range(0, _range), spawnPointPosition.y, Random.Range(0, _range));
                 var enemy = Instantiate(_enemyRunner, spawnPointPosition + offset, spawnPoint.rotation);
+                enemy.OnDeathEvent += OnEnemyDeath;
                 enemy.SetTarget(target);
+            }
+
+            _currentEnemyCount = amount;
+        }
+
+        private void OnEnemyDeath()
+        {
+            _currentEnemyCount--;
+            if (_currentEnemyCount <= 0)
+            {
+                OnAllEnemiesDeathEvent?.Invoke();
             }
         }
     }
