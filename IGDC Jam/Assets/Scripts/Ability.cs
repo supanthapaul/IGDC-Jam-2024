@@ -1,3 +1,4 @@
+using Health_System;
 using UnityEngine;
 
 public enum Abilities
@@ -20,14 +21,14 @@ public class Ability : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")&&TryGetComponent(out IHealth _))
         {
             GameManager.Instance.GiveAbility(nextUnlock);
+            GameManager.Instance.SetAllRestrictions();
+            Destroy(gameObject);
         }
   
-        GameManager.Instance.SetAllRestrictions();
         
-        Destroy(gameObject);
     }
 
 }
