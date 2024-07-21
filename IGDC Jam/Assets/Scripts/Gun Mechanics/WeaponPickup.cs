@@ -13,7 +13,7 @@ public class WeaponPickup : MonoBehaviour
     private void Update()
     {
         camPos = new Vector3(camTransform.position.x, 0f, camTransform.position.z);
-        childTransform.LookAt(camTransform.position);
+        transform.LookAt(camTransform.position);
     }
 
     private void OnTriggerEnter(Collider other)

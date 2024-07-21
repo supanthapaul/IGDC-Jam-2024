@@ -17,11 +17,6 @@ public class WeaponsHolder : AbilityUpdate
     {
         SetUpRestrictions();
 
-        if(weaponList.Count > 0 )
-        {
-            weaponList[0].enabled = false;
-        }
-
     }
 
     private void Update()
@@ -98,13 +93,15 @@ public class WeaponsHolder : AbilityUpdate
     {
         hasFire = true;
         SetActiveWeapon(0);
-        PlayerPrefs.SetInt(FireRestriction, 1);
+        GameManager.Instance.GiveAbility(Abilities.Fire);
     }
 
     public override void SetUpRestrictions()
     {
         hasFire = PlayerPrefs.GetInt(FireRestriction, 0) == 1;
         hasReload = PlayerPrefs.GetInt(ReloadRestriction, 0) == 1;
+
+        if (hasFire) SetActiveWeapon(0);
     }
 
     [ContextMenu("Take Away All Abilities")]

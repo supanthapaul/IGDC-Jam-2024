@@ -39,7 +39,9 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void SetUpStats()
     {
-        canFire = currentAmmo > 0;
+        isEmpty = !(currentAmmo > 0);
+        canFire = !isEmpty; 
+        Debug.Log(canFire+" "+isEmpty + " " + currentAmmo);
         reloadWait = new WaitForSeconds(stats.reloadTime);
         fireRateWait = new WaitForSeconds(1f / stats.fireRate);
         cam = Camera.main;
