@@ -27,6 +27,8 @@ public class FPCam : AbilityUpdate
 
         originalYRotation = orientation.transform.localEulerAngles.y;
 
+        sensX *= Mathf.Max(PlayerPrefs.GetFloat(MouseSens, 1f), 0.1f);
+        sensY *= Mathf.Max(PlayerPrefs.GetFloat(MouseSens, 1f), 0.1f);
     }
 
     [ContextMenu("Take Away Look Abilities")]
