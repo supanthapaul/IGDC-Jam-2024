@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0dcb9c588824aefb3ff4e88516cc681, type: 3}
+  m_Name: level3-intro
+  m_EditorClassIdentifier: 
+  text: Welcome to the final test chamber. This will test your motor and object permanence.
+    Please be mindful of the laser death pit. We cannot afford any more safety violations.
+  audio: {fileID: 8300000, guid: eae2d17c68d399e41ae0c3d890815564, type: 3}
+  duration: 11.748073
+  dialogues:
+  - text: 'Welcome to the final test chamber. '
+    duration: 2.494
+  - text: 'This will test your motor and object permanence. '
+    duration: 3.486
+  - text: Please be mindful of the laser death pit. We cannot afford any more safety
+      violations.
+    duration: 5.76807
+  key: level3-intro

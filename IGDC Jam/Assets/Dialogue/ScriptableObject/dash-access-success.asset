@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0dcb9c588824aefb3ff4e88516cc681, type: 3}
+  m_Name: dash-access-success
+  m_EditorClassIdentifier: 
+  text: It's almost as if someone, intended for you to be here. But what do I know?
+    I'm merely the first-ever Advanced Generic Intelligence, programmed to produce
+    A.I.
+  audio: {fileID: 8300000, guid: fc8562220362342468e43155a14423af, type: 3}
+  duration: 11.155918
+  dialogues:
+  - text: It's almost as if someone, <i>intended</i> for you to be here
+    duration: 3.861
+  - text: ' But what do I know? I''m merely the first-ever Advanced Generic Intelligence,
+      programmed to produce A.I.'
+    duration: 7.29492
+  key: 
