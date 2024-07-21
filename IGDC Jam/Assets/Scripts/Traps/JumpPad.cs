@@ -10,6 +10,7 @@ public class JumpPad : MonoBehaviour
         if(other.TryGetComponent(out FPController controller))
         {
             controller.JumpPadLogic(upwardForce);
+            AudioManager.instance.PlaySound("jumppad", transform.position);
         }
 
     }

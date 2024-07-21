@@ -350,6 +350,7 @@ public class FPController : AbilityUpdate, IHealth
 
     private void Dash()
     {
+        AudioManager.instance.PlaySound2D("dash", 0.25f);
         dashing = true;
         canDash = false;
         _currentDashCooldown = dashCooldown;
@@ -398,7 +399,7 @@ public class FPController : AbilityUpdate, IHealth
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
+        AudioManager.instance.PlaySound2D("hit");
         if(currentHealth <= 0)
         {
             _rb.velocity = Vector3.zero;

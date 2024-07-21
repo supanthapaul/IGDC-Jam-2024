@@ -22,6 +22,7 @@ public class WeaponPickup : MonoBehaviour
 
         if (other.TryGetComponent(out FPController controller))
         {
+            AudioManager.instance.PlaySound("equip", transform.position);
             controller.weaponsHolder.AddWeapon();
         }
         Destroy(gameObject);

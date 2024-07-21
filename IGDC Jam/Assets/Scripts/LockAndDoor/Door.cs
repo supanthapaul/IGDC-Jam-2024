@@ -53,7 +53,7 @@ namespace LockAndDoor
         public override void SetOpen(bool isOpen)
         {
             if (_doorState == isOpen) return;
-
+            base.SetOpen(isOpen);
             _doorState = isOpen;
             doorFrameRenderer.materials[glowMatIndex].color = isOpen ? Color.green : Color.red;
             doorFrameRenderer.materials[glowMatIndex].SetColor(EmissionColor, (isOpen ? Color.green : Color.red) * 4f);

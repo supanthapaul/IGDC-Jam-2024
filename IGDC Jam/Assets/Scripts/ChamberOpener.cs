@@ -34,7 +34,7 @@ public class ChamberOpener : IOpener
     public override void SetOpen(bool isOpen)
     {
         if (_state == isOpen) return;
-
+        base.SetOpen(isOpen);
         _state = isOpen;
         chamber.DOMoveY(isOpen ? _startY + yOffset : _startY, duration).SetEase(Ease.InSine);
     }

@@ -15,7 +15,7 @@ public class InteractionRay : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         gazeRay = cam.ViewportPointToRay(screenMidpoint);
         if (Physics.Raycast(gazeRay, out RaycastHit hit, 50f))

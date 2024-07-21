@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461446d9bb27421438caeec3980178b6, type: 3}
+  m_Name: SoundLibrary
+  m_EditorClassIdentifier: 
+  soundGroups:
+  - GroupID: lockOpen
+    group:
+    - {fileID: 8300000, guid: b8bceddc751256f47b85672da46eb37e, type: 3}
+  - GroupID: doorOpen
+    group:
+    - {fileID: 8300000, guid: 04de188d0631f914f822e8d1bb59ad62, type: 3}
+  - GroupID: doorClose
+    group:
+    - {fileID: 8300000, guid: 3677115d201d4b94c93eb97f60191f3d, type: 3}
+  - GroupID: getAbility
+    group:
+    - {fileID: 8300000, guid: 593391d77e49f074b8e71cc34028b657, type: 3}
+  - GroupID: shoot
+    group:
+    - {fileID: 8300000, guid: 96bdc74e142419743bb9947c91bcc8bc, type: 3}
+    - {fileID: 8300000, guid: 2f4fd247febcbaf45a47ba431c25aba1, type: 3}
+  - GroupID: hit
+    group:
+    - {fileID: 8300000, guid: 53ace25e0db7a854fa05caa32e0d665c, type: 3}
+  - GroupID: equip
+    group:
+    - {fileID: 8300000, guid: 2111ee407fd497c43872d77883d16b47, type: 3}
+  - GroupID: reload
+    group:
+    - {fileID: 8300000, guid: 09fe8e20732ca094497d09290efa6ba4, type: 3}
+  - GroupID: jumppad
+    group:
+    - {fileID: 8300000, guid: b51bee8422d549a4fb81c3522cb8af5b, type: 3}
+    - {fileID: 8300000, guid: 8fcb9c9449ac2064eac112bb0de41d65, type: 3}
+  - GroupID: dash
+    group:
+    - {fileID: 8300000, guid: 1837d8f55da4da24b980a65cfbb492f4, type: 3}

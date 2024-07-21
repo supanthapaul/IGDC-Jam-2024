@@ -54,6 +54,7 @@ public class WeaponAnimation : MonoBehaviour
         if (weaponToAnimate.IsReloading && !hasReloaded)
         {
             animator.SetTrigger("Reload");
+            AudioManager.instance.PlaySound2D("reload");
             hasReloaded = true;
         }
 

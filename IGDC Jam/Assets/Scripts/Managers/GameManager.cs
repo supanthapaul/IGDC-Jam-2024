@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ShowAbilityNotif()
     {
+        AudioManager.instance.PlaySound2D("getAbility");
         abilityAlphaGroup.gameObject.SetActive(true);
         abilityAlphaGroup.transform.DOScaleX(1f, 0.35f).SetEase(Ease.OutBack);
         abilityAlphaGroup.DOFade(1f, 0.35f);

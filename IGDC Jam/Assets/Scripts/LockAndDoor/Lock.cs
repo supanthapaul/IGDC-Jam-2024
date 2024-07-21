@@ -10,6 +10,9 @@ namespace LockAndDoor
         [SerializeField]
         private float _totalTime;
         
+        [SerializeField]
+        private string unlockSoundName = "lockOpen";
+        
         [Tooltip("Rate at which the value decays per second")]
         [SerializeField]
         private float _decayRate = 0.5f; // 
@@ -37,6 +40,7 @@ namespace LockAndDoor
         
 
         private bool _lock;
+        private bool _soundPlayed = false;
    
         private float _decayTimer = 0f;
         private Material _material;
@@ -50,6 +54,8 @@ namespace LockAndDoor
         public void Fill()
         {
             _unlock = Mathf.Clamp01(_unlock + Time.deltaTime/_totalTime);
+            if(_unlock <= 0.6f)
+                _soundPlayed = false;
             
             _decayTimer = 0f; // Reset decay timer when Fill is called
             if (_keepOpen)
@@ -65,6 +71,11 @@ namespace LockAndDoor
             if (!(_unlock >= 1f)) return;
             _lock = _keepOpen;
             _door.SetOpen(true);
+            if (!_soundPlayed)
+            {
+                AudioManager.instance.PlaySound(unlockSoundName, transform.position);
+                _soundPlayed = true;
+            }
         }
 
         private void Update()

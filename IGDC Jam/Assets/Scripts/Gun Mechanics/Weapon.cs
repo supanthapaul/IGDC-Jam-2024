@@ -81,6 +81,10 @@ public abstract class Weapon : MonoBehaviour
     }
     protected virtual void Fire()
     {
+        if(isBot)
+            AudioManager.instance.PlaySound("shoot", transform.position, 0.8f);
+        else 
+            AudioManager.instance.PlaySound2D("shoot");
         if(!isBot)
         {
             currentAmmo--;

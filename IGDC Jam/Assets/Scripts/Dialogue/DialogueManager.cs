@@ -55,8 +55,7 @@ namespace Dialogue
 
         private IEnumerator StartConversation(DialogueSO startNode)
         {
-            _audioSource.clip = startNode.audio;
-            _audioSource.Play();
+            AudioManager.instance.PlayNarratorSound2D(startNode.audio);
             foreach(var dialogue in startNode.dialogues)
             {
                 _audioText.SetText(dialogue.text);
