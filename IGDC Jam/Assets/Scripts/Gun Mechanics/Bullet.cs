@@ -30,8 +30,12 @@ public class Bullet : MonoBehaviour
         {
             healthComponent.TakeDamage(damage);
         }
-        onHitEffect.SetActive(true);
-        onHitEffect.transform.parent = null;
+
+        if(onHitEffect!=null)
+        {
+            onHitEffect.SetActive(true);
+            onHitEffect.transform.parent = null;
+        }
         Destroy(gameObject);
     }
 }

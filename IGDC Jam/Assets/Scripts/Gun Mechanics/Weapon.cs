@@ -101,7 +101,9 @@ public abstract class Weapon : MonoBehaviour
                     {
                         health.TakeDamage(bullet.damage);
                     }
-                    Instantiate(bullet.bulletObject.onHitEffect, hit.point, Quaternion.identity);
+                    if(bullet.bulletObject.onHitEffect != null)
+                        Instantiate(bullet.bulletObject.onHitEffect, hit.point, Quaternion.identity);
+
                     maxLineLength = Mathf.Min(hit.distance, maxLineLength);
                 }
 
