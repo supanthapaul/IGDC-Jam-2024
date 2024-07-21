@@ -17,7 +17,7 @@ namespace Dialogue
         [SerializeField]
         private TextMeshProUGUI _audioText;
         
-        public static DialogueManager instance;
+        public static DialogueManager Instance;
         
         public Action<string> OnDialogueComplete;
         
@@ -26,9 +26,9 @@ namespace Dialogue
 
         private void Awake()
         {
-            if (instance == null)
+            if (Instance == null)
             {
-                instance = this;
+                Instance = this;
             }
             else
             {
