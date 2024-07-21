@@ -21,7 +21,7 @@ public class Ability : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")&&TryGetComponent(out IHealth _))
+        if (other.CompareTag("Player")&&other.TryGetComponent(out IHealth _))
         {
             GameManager.Instance.GiveAbility(nextUnlock);
             GameManager.Instance.SetAllRestrictions();
