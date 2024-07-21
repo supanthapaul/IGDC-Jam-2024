@@ -4656,6 +4656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneTheme: {fileID: 8300000, guid: 2affcd905a7260a4aa5dfcf5cb2a56a4, type: 3}
   playOnStart: 0
+  optVolume: 0.5
 --- !u!114 &7702095446796548657
 MonoBehaviour:
   m_ObjectHideFlags: 0
