@@ -481,6 +481,18 @@ CanvasGroup:
     type: 3}
   m_PrefabInstance: {fileID: 153451356}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &153451359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6611754467129135376, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 153451356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &327356292
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +854,7 @@ MonoBehaviour:
   playerController: {fileID: 1892179952}
   abilityText: {fileID: 153451357}
   abilityAlphaGroup: {fileID: 153451358}
+  deathFade: {fileID: 153451359}
 --- !u!4 &427555049
 Transform:
   m_ObjectHideFlags: 0

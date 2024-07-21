@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static PlayerPrefStatics;
 
 public class GameManager : MonoBehaviour
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public TextMeshProUGUI abilityText;
     public CanvasGroup abilityAlphaGroup;
-
+    public Image deathFade;
 
     private AbilityUpdate[] abilities;
 
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
         abilitiesGottenThisRetry = new List<Abilities>();
         playerHealth = playerController.GetComponent<IHealth>();
         abilities = FindObjectsByType<AbilityUpdate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        deathFade.DOColor(Color.clear, 1f);
     }
 
     public void LevelCompleted()
@@ -49,8 +51,7 @@ public class GameManager : MonoBehaviour
     {
         //some other stuff
         ResetTemporaryAbilities();
-
-        ReloadStage();
+        deathFade.DOColor(new Color(0, 0, 0, 1), 1f).OnComplete(() => ReloadStage());
     }
 
     private void ReloadStage()

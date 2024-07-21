@@ -2406,6 +2406,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25546f0e15843b347985721a7d2b2274, type: 3}
+--- !u!114 &1646215427 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6611754467129135376, guid: 25546f0e15843b347985721a7d2b2274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1646215426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1811683847 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7419994593003141459, guid: cc5ee663d21e7c64b88b4e1b8eda3c80,
@@ -2583,6 +2595,7 @@ MonoBehaviour:
   playerController: {fileID: 528297532}
   abilityText: {fileID: 1937726756}
   abilityAlphaGroup: {fileID: 284010065}
+  deathFade: {fileID: 1646215427}
 --- !u!43 &1931808307
 Mesh:
   m_ObjectHideFlags: 0

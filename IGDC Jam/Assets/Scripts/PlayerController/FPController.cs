@@ -399,6 +399,8 @@ public class FPController : AbilityUpdate, IHealth
 
         if(currentHealth <= 0)
         {
+            _rb.velocity = Vector3.zero;
+            _rb.isKinematic = true;
             isAlive = false;
             GameManager.Instance.PlayerDeath();
         }
