@@ -100,7 +100,7 @@ public class WeaponsHolder : AbilityUpdate
         hasFire = PlayerPrefs.GetInt(FireRestriction, 0) == 1;
         hasReload = PlayerPrefs.GetInt(ReloadRestriction, 0) == 1;
 
-        if (hasFire) SetActiveWeapon(0);
+        SetActiveWeapon(hasFire?0:-1);
     }
 
     [ContextMenu("Take Away All Abilities")]
