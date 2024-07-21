@@ -10,6 +10,9 @@ public class SetupOptions : MonoBehaviour
         sfxVolume.value = PlayerPrefs.GetFloat(SFXVolume, 0.5f);
         narratorVolume.value = PlayerPrefs.GetFloat(NarratorVolume, 1f);
         mouseSens.value = PlayerPrefs.GetFloat(MouseSens, 0.5f);
+        AudioManager.instance.SetVolume(musicVolume.value, AudioManager.AudioChannel.Music);
+        AudioManager.instance.SetVolume(sfxVolume.value, AudioManager.AudioChannel.Sfx);
+        AudioManager.instance.SetVolume(narratorVolume.value, AudioManager.AudioChannel.Narrator);
     }
 
     public void AfterValueUpdate()
