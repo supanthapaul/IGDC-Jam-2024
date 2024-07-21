@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0dcb9c588824aefb3ff4e88516cc681, type: 3}
+  m_Name: crouch-access-success
+  m_EditorClassIdentifier: 
+  text: It's almost poetic. You thought you were just a test subject. which you are.
+    Just not theirs. You were smart enough to break through their simulations, and
+    unfortunate enough to run into mine. Now go. Claim your prize
+  audio: {fileID: 8300000, guid: b3fe4a4b6ac2fe54b8045f010ef5f85b, type: 3}
+  duration: 14.28898
+  dialogues:
+  - text: It's almost poetic. You thought you were just a test subject
+    duration: 4.327
+  - text: Which you <i>are</i> - Just not theirs.
+    duration: 2.67
+  - text: You were smart enough to break through their simulations
+    duration: 3.01
+  - text: and unfortunate enough to run into mine
+    duration: 2.8
+  - text: Now go. Claim your prize
+    duration: 2.273
+  key: crouch-access-success
