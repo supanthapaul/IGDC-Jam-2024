@@ -115,7 +115,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  _emissionIntensity: 4
+  _emissionIntensity: 6
 --- !u!65 &4159614069977505741
 BoxCollider:
   m_ObjectHideFlags: 0
