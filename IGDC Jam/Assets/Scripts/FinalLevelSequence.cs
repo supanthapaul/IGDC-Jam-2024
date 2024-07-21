@@ -2,6 +2,7 @@ using Dialogue;
 using Enemy;
 using LockAndDoor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FinalLevelSequence : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class FinalLevelSequence : MonoBehaviour
 
     [SerializeField]
     private Door exitDoor;
+
+    [SerializeField]
+    private int enemyCount;
+
+    [SerializeField]
+    private string onAllEnemyDeathDialogueKey;
     
     private GameManager _gameManager;
     private DialogueManager _dialogueManager;
@@ -18,11 +25,12 @@ public class FinalLevelSequence : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
         _dialogueManager = DialogueManager.Instance;
-        _dialogueManager.OnDialogueComplete += OnDialogueComplete;
+        enemyManager.SpawnEnemies(enemyCount);
+        enemyManager.OnAllEnemiesDeathEvent += OnAllEnemiesDeath;
     }
 
-    private void OnDialogueComplete(string obj)
+    private void OnAllEnemiesDeath()
     {
-        
+        _dialogueManager.StartDialogue(onAllEnemyDeathDialogueKey);
     }
 }
