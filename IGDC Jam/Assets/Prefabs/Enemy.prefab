@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4177389080146361325}
   - component: {fileID: 184460676131106658}
   - component: {fileID: 1756047855583981137}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Renderer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 5516897871609559121}
   - component: {fileID: 3017745794531218110}
   - component: {fileID: 4269506865501097334}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5349850382861443511}
   - component: {fileID: 7073964007033076809}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Weapon
   m_TagString: Enemy
   m_Icon: {fileID: 0}

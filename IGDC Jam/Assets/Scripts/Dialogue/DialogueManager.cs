@@ -44,6 +44,7 @@ namespace Dialogue
             if (_currentConversation != null)
             {
                 StopCoroutine(_currentConversation);
+                _audioText.SetText(string.Empty);
                 _audioSource.Stop();
                 OnDialogueComplete?.Invoke(_currentDialogueKey);
             }
@@ -61,6 +62,8 @@ namespace Dialogue
                 _audioText.SetText(dialogue.text);
                 yield return new WaitForSecondsRealtime(dialogue.duration);
             }
+            
+            _audioText.SetText(string.Empty);
             OnDialogueComplete?.Invoke(_currentDialogueKey);
         }
     }
