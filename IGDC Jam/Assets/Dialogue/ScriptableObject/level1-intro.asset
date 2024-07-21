@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0dcb9c588824aefb3ff4e88516cc681, type: 3}
+  m_Name: level1-intro
+  m_EditorClassIdentifier: 
+  text: Ah! You are awake. Welcome to the Tactical Reclamation and Automated Sanitation
+    Hardware. You see the module ahead? Yes, the one emitting a faint blue glow.
+    Go pick it up.
+  audio: {fileID: 8300000, guid: e7f823c0e28baaf4788b7d0010b03489, type: 3}
+  duration: 14.141814
+  dialogues:
+  - text: Ah! You are awake.
+    duration: 2.106
+  - text: Ah! You are awake. Welcome to the Tactical Reclamation and Automated Sanitation
+      Hardware.
+    duration: 4.88
+  - text: You see the module ahead? Yes, the one emitting a faint blue glow.
+    duration: 4.68
+  - text: Go pick it up.
+    duration: 2.47581
+  key: level1-intro
