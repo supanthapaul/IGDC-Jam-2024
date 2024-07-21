@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using static PlayerPrefStatics;
+using UnityEngine.UI;
 
 public enum FPState
 {
@@ -53,6 +54,7 @@ public class FPController : AbilityUpdate, IHealth
     [SerializeField] private float dashUpwardForce;
     [SerializeField] private float dashCooldown;
     [SerializeField] private float dashPeriod;
+    [SerializeField] private Image dashSprite; 
     private float _remainingDashPeriod;
     private float _currentDashCooldown;
 
@@ -108,6 +110,7 @@ public class FPController : AbilityUpdate, IHealth
         isAlive = true;
         currentHealth = totalHealth = maxHealth;
         GameManager.Instance.playerController = this;
+        dashSprite = GameManager.Instance.inputImages.Dash.GetComponent<Image>();
     }
 
 
@@ -219,9 +222,11 @@ public class FPController : AbilityUpdate, IHealth
             if(!canDash)
             {
                 _currentDashCooldown -= Time.deltaTime;
+                dashSprite.fillAmount = 1 - (_currentDashCooldown / dashCooldown);
                 if(_currentDashCooldown < 0f)
                 {
-                    canDash = true;                    
+                    canDash = true;
+                    dashSprite.fillAmount = 1.0f;
                 }
             }
 
