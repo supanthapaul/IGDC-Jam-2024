@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using Dialogue;
 using UnityEditor;
 using UnityEngine;
@@ -30,3 +31,4 @@ public class DialogueSOEditor : Editor
         }
     }
 }
+#endif
