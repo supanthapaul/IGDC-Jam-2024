@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -14,7 +13,7 @@ public class AudioManager : MonoBehaviour {
     public float musicVolumePercent { get; private set; }
 
     AudioSource sfx2DSource;                //Audio source for playing 2D sound effects
-    AudioSource[] musicSources;             //Audio sources for backgroud music
+    AudioSource[] musicSources;             //Audio sources for background music
     int activeMusicSourceIndex;             //The index of active music we are currently playing
     AudioSource narrator2DSource;  
 
