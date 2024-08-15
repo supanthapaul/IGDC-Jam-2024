@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 
 public class JumpPad : MonoBehaviour

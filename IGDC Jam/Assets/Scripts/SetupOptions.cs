@@ -1,3 +1,4 @@
+using Audio;
 using UnityEngine;
 using UnityEngine.UI;
 using static PlayerPrefStatics;
@@ -10,9 +11,6 @@ public class SetupOptions : MonoBehaviour
         sfxVolume.value = PlayerPrefs.GetFloat(SFXVolume, 0.5f);
         narratorVolume.value = PlayerPrefs.GetFloat(NarratorVolume, 1f);
         mouseSens.value = PlayerPrefs.GetFloat(MouseSens, 0.5f);
-        AudioManager.instance.SetVolume(musicVolume.value, AudioManager.AudioChannel.Music);
-        AudioManager.instance.SetVolume(sfxVolume.value, AudioManager.AudioChannel.Sfx);
-        AudioManager.instance.SetVolume(narratorVolume.value, AudioManager.AudioChannel.Narrator);
     }
 
     public void AfterValueUpdate()
@@ -21,8 +19,18 @@ public class SetupOptions : MonoBehaviour
         PlayerPrefs.SetFloat(SFXVolume, sfxVolume.value);
         PlayerPrefs.SetFloat(NarratorVolume, narratorVolume.value);
         PlayerPrefs.SetFloat(MouseSens, mouseSens.value);
+    }
+    public void SetMusicVolume(float volume)
+    {
         AudioManager.instance.SetVolume(musicVolume.value, AudioManager.AudioChannel.Music);
+    }
+
+    public void SetSfxVolume(float volume)
+    {
         AudioManager.instance.SetVolume(sfxVolume.value, AudioManager.AudioChannel.Sfx);
+    }
+    public void SetNarratorVolume(float volume)
+    {
         AudioManager.instance.SetVolume(narratorVolume.value, AudioManager.AudioChannel.Narrator);
     }
 }

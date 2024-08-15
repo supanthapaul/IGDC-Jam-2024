@@ -1,5 +1,6 @@
 using Health_System;
 using System.Collections;
+using Audio;
 using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
