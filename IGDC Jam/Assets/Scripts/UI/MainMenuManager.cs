@@ -29,10 +29,13 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        #if UNITY_WEBGL && !UNITY_EDITOR
+        quitButton.gameObject.SetActive(false);
+        #endif
+        quitButton.onClick.AddListener(Quit);
         playButton.onClick.AddListener(Play);
         optionsButton.onClick.AddListener(ShowOptionsMenu);
         tutorialButton.onClick.AddListener(ShowTutorialMenu);
-        quitButton.onClick.AddListener(Quit);
         optionsBackButton.onClick.AddListener(CloseOptionsMenu);
         tutorialBackButton.onClick.AddListener(CloseTutorialMenu);
         tutorialNextButton.onClick.AddListener(NextTutorial);
@@ -133,6 +136,10 @@ public class MainMenuManager : MonoBehaviour
     
     private void Quit()
     {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
         Application.Quit();
+        #endif
     }
 }
